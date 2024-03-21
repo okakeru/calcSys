@@ -1,0 +1,83 @@
+﻿<Window x:Class="easyCalc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:easyCalc"
+        mc:Ignorable="d"
+        Title="Windows版関数電卓" Height="750" Width="1000"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="OpenButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Aquamarine"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="HiddenButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Orange"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="500"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- 画面拡大縮小ボタン -->
+        <Button Name="shownPeriodicTable" Grid.Column="1" Width="25" Height="25" Margin="0,10,0,650" Click="showPeriodicTable_Click" ToolTip="shown periodic table" Style="{StaticResource OpenButtonStyle}">→</Button>
+        <Button Name="hidePeriodicTable" Grid.Column="1" Width="25" Height="25" Margin="0,10,0,650" Click="hidePeriodicTable_Click" ToolTip="hide periodic table" Style="{StaticResource HiddenButtonStyle}">←</Button>
+
+        <!-- 画面左側 -->
+        
+        
+        <!-- 画面右側 -->
+        <Border Grid.Column="1" BorderBrush="Black" Height="50" Width="200" BorderThickness="0" VerticalAlignment="Top">
+            <TextBlock Text="Periodic Table" VerticalAlignment="Center" Width="100" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
+        </Border>
+
+    </Grid>
+
+</Window>
