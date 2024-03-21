@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\00_MyCompany\\自社開発システム\\関数電卓システム\\01_source\\easyCalc\\easyCalc\\easyCalc.csproj",
+      "projectUniqueName": "C:\\00_MyCompany\\自社開発システム\\関数電卓システム\\001_Source\\easyCalc\\easyCalc.csproj",
       "projectName": "easyCalc",
-      "projectPath": "C:\\00_MyCompany\\自社開発システム\\関数電卓システム\\01_source\\easyCalc\\easyCalc\\easyCalc.csproj",
+      "projectPath": "C:\\00_MyCompany\\自社開発システム\\関数電卓システム\\001_Source\\easyCalc\\easyCalc.csproj",
       "packagesPath": "C:\\Users\\unnta\\.nuget\\packages\\",
-      "outputPath": "C:\\00_MyCompany\\自社開発システム\\関数電卓システム\\01_source\\easyCalc\\easyCalc\\obj\\",
+      "outputPath": "C:\\00_MyCompany\\自社開発システム\\関数電卓システム\\001_Source\\easyCalc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\unnta\\AppData\\Roaming\\NuGet\\NuGet.Config",

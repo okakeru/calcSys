@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:easyCalc"
         mc:Ignorable="d"
-        Title="Windows版関数電卓" Height="750" Width="1000"
+        Title="Windows版関数電卓" Height="800" Width="1000"
         ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="OpenButtonStyle" TargetType="Button">
@@ -59,11 +59,11 @@
 
     </Window.Resources>
 
-    <Grid>
+    <Grid Name="windowGrid" Background="LightGray">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Name="calcColumn" Width="450"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Name="periodicTableColumn" Width="500"/>
         </Grid.ColumnDefinitions>
         
         <!-- 画面拡大縮小ボタン -->
@@ -71,10 +71,66 @@
         <Button Name="hidePeriodicTable" Grid.Column="1" Width="25" Height="25" Margin="0,10,0,650" Click="hidePeriodicTable_Click" ToolTip="hide periodic table" Style="{StaticResource HiddenButtonStyle}">←</Button>
 
         <!-- 画面左側 -->
-        
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="500"/>
+            </Grid.RowDefinitions>
+            
+            <!-- 計算式テキストボックス -->
+            <TextBox Grid.Row="0" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center"/>
+
+            <!-- 計算結果テキストボックス -->
+            <TextBox Grid.Row="1" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True"/>
+
+            <!-- 入力ボタン部 -->
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- 数字部 -->
+                <Button Name="zero" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="zero_Click">0</Button>
+                <Button Name="one" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="one_Click">1</Button>
+                <Button Name="two" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="two_Click">2</Button>
+                <Button Name="three" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="three_Click">3</Button>
+                <Button Name="four" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="four_Click">4</Button>
+                <Button Name="five" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="five_Click">5</Button>
+                <Button Name="six" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="six_Click">6</Button>
+                <Button Name="seven" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="seven_Click">7</Button>
+                <Button Name="eight" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="eight_Click">8</Button>
+                <Button Name="nine" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nine_Click">9</Button>
+                
+                <!-- 記号部 -->
+                <Button Name="period" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="period_Click">.</Button>
+                <Button Name="exponential" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="exponential_Click">^X</Button>
+                <Button Name="allClear" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="allClear_Click">AC</Button>
+                <Button Name="clear" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="clear_Click">C</Button>
+                <Button Name="multiplication" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="multiplication_Click">×</Button>
+                <Button Name="division" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="division_Click">÷</Button>
+                <Button Name="plus" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="plus_Click">＋</Button>
+                <Button Name="minas" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="minas_Click">－</Button>
+                <Button Name="equal" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="equal_Click">＝</Button>
+            </Grid>
+            
+        </Grid>
         
         <!-- 画面右側 -->
-        <Border Grid.Column="1" BorderBrush="Black" Height="50" Width="200" BorderThickness="0" VerticalAlignment="Top">
+        <Border Grid.Column="2" BorderBrush="Black" Height="50" Width="200" BorderThickness="0" VerticalAlignment="Top">
             <TextBlock Text="Periodic Table" VerticalAlignment="Center" Width="100" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
         </Border>
 
