@@ -79,7 +79,7 @@
             </Grid.RowDefinitions>
             
             <!-- 計算式テキストボックス -->
-            <TextBox Grid.Row="0" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" KeyDown="formulaText_KeyDown"/>
 
             <!-- 計算結果テキストボックス -->
             <TextBox Grid.Row="1" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True"/>
