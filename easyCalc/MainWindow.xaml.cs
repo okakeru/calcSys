@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace easyCalc
 {
@@ -572,7 +573,48 @@ namespace easyCalc
                 {
                     MessageBox.Show("入力できる原子は9つまでです。");
                 }
+            }
 
+            var connectionString = "Data Source=calc.sqlite3";
+            decimal atomicMass = 0;
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                var sql = "select * from m_atom where element_symbol = @symbol";
+
+                using (var cmd = new SQLiteCommand(connectionString))
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = sql;
+                    cmd.Parameters.Add(new SQLiteParameter("symbol",buttonString));
+
+                    var result = cmd.ExecuteNonQuery();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            atomicMass += Decimal.Parse(reader["atomic_mass"].ToString());
+                            
+                            // defaultで読み取り専用のため書き込み可に変更
+                            totalAtomicMassText.IsReadOnly = false;
+
+                            if (totalAtomicMassText.Text != "")
+                            {
+                                totalAtomicMassText.Text = (decimal.Parse(totalAtomicMassText.Text) + atomicMass).ToString();
+                            }
+                            else
+                            {
+                                totalAtomicMassText.Text = atomicMass.ToString();
+                            }
+
+                            totalAtomicMassText.IsReadOnly = true;
+
+                        }
+                    }
+                }
             }
         }
     }

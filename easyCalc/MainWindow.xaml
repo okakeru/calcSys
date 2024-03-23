@@ -188,26 +188,28 @@
             <!-- 周期表タイトル -->
             <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="35" Text="Periodic Table" VerticalAlignment="Center" Width="100" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
 
-            <Label Name="nameInMoleculesAtom1" Grid.Column="0" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom2" Grid.Column="4" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom3" Grid.Column="8" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom4" Grid.Column="12" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom5" Grid.Column="16" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom6" Grid.Column="20" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom7" Grid.Column="24" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom8" Grid.Column="28" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom9" Grid.Column="32" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom1" Grid.Column="0" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom2" Grid.Column="4" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom3" Grid.Column="8" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom4" Grid.Column="12" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom5" Grid.Column="16" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom6" Grid.Column="20" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom7" Grid.Column="24" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom8" Grid.Column="28" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom9" Grid.Column="32" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
 
-            <TextBox Name="valueInMoleculesAtom1" Grid.Column="2" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom2" Grid.Column="6" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom3" Grid.Column="10" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom4" Grid.Column="14" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom5" Grid.Column="18" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom6" Grid.Column="22" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom7" Grid.Column="26" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom8" Grid.Column="30" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom9" Grid.Column="34" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom1" Grid.Column="2" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom2" Grid.Column="6" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom3" Grid.Column="10" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom4" Grid.Column="14" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom5" Grid.Column="18" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom6" Grid.Column="22" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom7" Grid.Column="26" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom8" Grid.Column="30" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom9" Grid.Column="34" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
 
+            <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="12" Text="Total atomic mass" VerticalAlignment="Center" Width="150" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
+            <TextBox Name="totalAtomicMassText" Grid.Column="11" Grid.Row="3" Grid.ColumnSpan="10" Width="150" Height="40" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
             <Button Name="btnHydrogen" Grid.Column="0" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hydrogen" Click="clickOfAtom">H</Button>
             <Button Name="btnHelium" Grid.Column="36" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Helium" Click="clickOfAtom">He</Button>

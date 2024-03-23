@@ -40,3 +40,13 @@ C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\eas
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\easyCalc.pdb
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\easyCalc.genruntimeconfig.cache
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\ref\easyCalc.dll
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\System.Data.SQLite.dll
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\linux-x64\native\libsqlite3.so
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\osx-x64\native\libsqlite3.dylib
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\win7-x64\native\sqlite3.dll
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\win7-x86\native\sqlite3.dll
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\easyCalc.csproj.CopyComplete
