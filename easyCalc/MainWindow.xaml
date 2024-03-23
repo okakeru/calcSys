@@ -210,6 +210,7 @@
 
             <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="12" Text="Total atomic mass" VerticalAlignment="Center" Width="150" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
             <TextBox Name="totalAtomicMassText" Grid.Column="11" Grid.Row="3" Grid.ColumnSpan="10" Width="150" Height="40" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button Name="copyAtomicMass" Grid.Column="22" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="copyAtomicMass_Click">Copy</Button>
 
             <Button Name="btnHydrogen" Grid.Column="0" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hydrogen" Click="clickOfAtom">H</Button>
             <Button Name="btnHelium" Grid.Column="36" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Helium" Click="clickOfAtom">He</Button>

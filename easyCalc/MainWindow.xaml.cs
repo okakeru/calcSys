@@ -617,5 +617,24 @@ namespace easyCalc
                 }
             }
         }
+
+        /// <summary>
+        /// 積算した分子量をコピーする
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void copyAtomicMass_Click(object sender, RoutedEventArgs e)
+        {
+            if (totalAtomicMassText.Text != "")
+            {
+                // 積算した分子量をコピー
+                Clipboard.SetDataObject(totalAtomicMassText.Text, true);
+                MessageBox.Show("分子量をコピーしました。");
+            }
+            else
+            {
+                MessageBox.Show("積算する元素を選択してください。");
+            }
+        }
     }
 }
