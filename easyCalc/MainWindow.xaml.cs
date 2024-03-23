@@ -636,5 +636,36 @@ namespace easyCalc
                 MessageBox.Show("積算する元素を選択してください。");
             }
         }
+
+        /// <summary>
+        /// 積算した分子量を削除する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void clearAtomicMass_Click(object sender, RoutedEventArgs e)
+        {
+            nameInMoleculesAtom1.Content = null;
+            nameInMoleculesAtom2.Content = null;
+            nameInMoleculesAtom3.Content = null;
+            nameInMoleculesAtom4.Content = null;
+            nameInMoleculesAtom5.Content = null;
+            nameInMoleculesAtom6.Content = null;
+            nameInMoleculesAtom7.Content = null;
+            nameInMoleculesAtom8.Content = null;
+            nameInMoleculesAtom9.Content = null;
+
+            valueInMoleculesAtom1.Text = string.Empty;
+            valueInMoleculesAtom2.Text = string.Empty;
+            valueInMoleculesAtom3.Text = string.Empty;
+            valueInMoleculesAtom4.Text = string.Empty;
+            valueInMoleculesAtom5.Text = string.Empty;
+            valueInMoleculesAtom6.Text = string.Empty;
+            valueInMoleculesAtom7.Text = string.Empty;
+            valueInMoleculesAtom8.Text = string.Empty;
+            valueInMoleculesAtom9.Text = string.Empty;
+
+            totalAtomicMassText.Text = string.Empty;
+
+        }
     }
 }
