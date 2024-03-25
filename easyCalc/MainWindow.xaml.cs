@@ -667,5 +667,50 @@ namespace easyCalc
             totalAtomicMassText.Text = string.Empty;
 
         }
+
+        /// <summary>
+        /// 常用対数ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void commonLogarithm_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "log10()";
+        }
+
+        /// <summary>
+        /// 自然対数ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void naturalLogarithm_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "loge()";
+        }
+
+        private void sin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cos_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void tan_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void root_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void squareRoot_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

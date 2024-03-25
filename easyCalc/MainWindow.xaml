@@ -79,10 +79,10 @@
             </Grid.RowDefinitions>
             
             <!-- 計算式テキストボックス -->
-            <TextBox Grid.Row="0" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" KeyDown="formulaText_KeyDown"/>
+            <TextBox Grid.Row="0" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" KeyDown="formulaText_KeyDown" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 計算結果テキストボックス -->
-            <TextBox Grid.Row="1" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True"/>
+            <TextBox Grid.Row="1" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 入力ボタン部 -->
             <Grid Grid.Row="2" Grid.Column="0">
@@ -116,6 +116,16 @@
                 <Button Name="nine" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nine_Click">9</Button>
                 
                 <!-- 記号部 -->
+                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm">log</Button>
+                <Button Name="naturalLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="naturalLogarithm_Click" ToolTip="natural logarithm">ln</Button>
+                <Button Name="sin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="sin_Click" ToolTip="sin">sin</Button>
+                <Button Name="cos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cos_Click" ToolTip="cos">cos</Button>
+                <Button Name="tan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="tan_Click" ToolTip="tan">tan</Button>
+                <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suareRoot">√</Button>
+                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="root_Click" ToolTip="root">
+                    <Image Source="picture/root.png"/>
+                </Button>
+                
                 <Button Name="period" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="period_Click">.</Button>
                 <Button Name="exponential" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="exponential_Click">^X</Button>
                 <Button Name="allClear" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="allClear_Click">AC</Button>
@@ -210,8 +220,8 @@
 
             <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="12" Text="Total atomic mass" VerticalAlignment="Center" Width="150" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
             <TextBox Name="totalAtomicMassText" Grid.Column="11" Grid.Row="3" Grid.ColumnSpan="10" Width="150" Height="40" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Button Name="copyAtomicMass" Grid.Column="22" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="copyAtomicMass_Click">Copy</Button>
-            <Button Name="clearAtomicMass" Grid.Column="28" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="clearAtomicMass_Click">Clear</Button>
+            <Button Name="copyAtomicMass" Grid.Column="22" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="copyAtomicMass_Click" ToolTip="Copy molecular weight.">Copy</Button>
+            <Button Name="clearAtomicMass" Grid.Column="28" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="clearAtomicMass_Click" ToolTip="Delete number of atoms and molecular weight.">Clear</Button>
 
             <Button Name="btnHydrogen" Grid.Column="0" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hydrogen" Click="clickOfAtom">H</Button>
             <Button Name="btnHelium" Grid.Column="36" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Helium" Click="clickOfAtom">He</Button>
