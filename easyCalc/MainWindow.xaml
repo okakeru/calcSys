@@ -116,15 +116,16 @@
                 <Button Name="nine" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nine_Click">9</Button>
                 
                 <!-- 記号部 -->
-                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm">log</Button>
+                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm" >log</Button>
                 <Button Name="naturalLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="naturalLogarithm_Click" ToolTip="natural logarithm">ln</Button>
                 <Button Name="sin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="sin_Click" ToolTip="sin">sin</Button>
                 <Button Name="cos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cos_Click" ToolTip="cos">cos</Button>
                 <Button Name="tan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="tan_Click" ToolTip="tan">tan</Button>
                 <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suareRoot">√</Button>
-                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="root_Click" ToolTip="root">
-                    <Image Source="picture/root.png"/>
+                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="root_Click" MouseEnter="root_MouseEnter" MouseLeave="root_MouseLeave" ToolTip="root">
+                    <Image x:Name="rootImage" HorizontalAlignment="Center" VerticalAlignment="Center" Source="picture/root.png"/>
                 </Button>
+                <Button Name="negativeSign" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="negativeSign_Click" ToolTip="negative sign">(ー)</Button>
                 
                 <Button Name="period" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="period_Click">.</Button>
                 <Button Name="exponential" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="exponential_Click">^X</Button>

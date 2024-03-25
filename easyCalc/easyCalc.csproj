@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="picture\mouseOverOfRoot.png" />
     <None Remove="picture\root.png" />
   </ItemGroup>
 
@@ -18,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="picture\mouseOverOfRoot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="picture\root.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

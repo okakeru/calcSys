@@ -712,5 +712,30 @@ namespace easyCalc
         {
 
         }
+
+        private void negativeSign_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// ルートボタンにカーソルを載せた時のイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void root_MouseEnter(object sender, MouseEventArgs e)
+        {
+            rootImage.Source = new BitmapImage(new Uri("picture/mouseOverOfRoot.png", UriKind.Relative));
+        }
+
+        /// <summary>
+        /// ルートボタンからカーソルを離した時のイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void root_MouseLeave(object sender, MouseEventArgs e)
+        {
+            rootImage.Source = new BitmapImage(new Uri("picture/root.png", UriKind.Relative));
+        }
     }
 }
