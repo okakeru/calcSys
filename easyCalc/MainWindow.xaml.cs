@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
+using System.Text.RegularExpressions;
 
 namespace easyCalc
 {
@@ -27,6 +28,9 @@ namespace easyCalc
             this.Width = 500;
             this.shownPeriodicTable.Visibility = Visibility.Visible;
             this.hidePeriodicTable.Visibility = Visibility.Hidden;
+
+            shownHistory.Visibility = Visibility.Visible;
+            hideHistory.Visibility = Visibility.Hidden;
 
             ActinoidLabel.Visibility = Visibility.Hidden;
             LanthanoidLabel.Visibility = Visibility.Visible;
@@ -72,9 +76,27 @@ namespace easyCalc
         /// <param name="e"></param>
         private void showPeriodicTable_Click(object sender, RoutedEventArgs e)
         {
-            this.Width = 1150;
-            this.shownPeriodicTable.Visibility = Visibility.Hidden;
-            this.hidePeriodicTable.Visibility = Visibility.Visible;
+            if(this.Width == 1150)
+            {
+                this.shownPeriodicTable.Visibility = Visibility.Hidden;
+                this.hidePeriodicTable.Visibility = Visibility.Visible;
+                PeriodicGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.Width = 1150;
+                this.shownPeriodicTable.Visibility = Visibility.Hidden;
+                this.hidePeriodicTable.Visibility = Visibility.Visible;
+                PeriodicGrid.Visibility = Visibility.Visible;
+            }
+
+            // 周期表表示ボタンがクリックされた状態のままになってしまうため、クリックしていない状態のオレンジボタンにする
+            if (this.hideHistory.Visibility == Visibility.Visible)
+            {
+                this.shownHistory.Visibility = Visibility.Visible;
+                this.hideHistory.Visibility = Visibility.Hidden;
+            }
+
         }
 
         /// <summary>
@@ -84,9 +106,53 @@ namespace easyCalc
         /// <param name="e"></param>
         private void hidePeriodicTable_Click(object sender, RoutedEventArgs e)
         {
+            if (this.Width == 500)
+            {
+                this.shownPeriodicTable.Visibility = Visibility.Visible;
+                this.hidePeriodicTable.Visibility = Visibility.Hidden;
+                PeriodicGrid.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                this.Width = 500;
+                this.shownPeriodicTable.Visibility = Visibility.Visible;
+                this.hidePeriodicTable.Visibility = Visibility.Hidden;
+                PeriodicGrid.Visibility = Visibility.Hidden;
+            }
+
+        }
+
+        /// <summary>
+        /// 計算履歴表示ボタン押下処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void shownHistory_Click(object sender, RoutedEventArgs e)
+        {
+            this.Width = 1150;
+            this.shownHistory.Visibility = Visibility.Hidden;
+            this.hideHistory.Visibility = Visibility.Visible;
+            PeriodicGrid.Visibility = Visibility.Hidden;
+
+            // 周期表表示ボタンがクリックされた状態のままになってしまうため、クリックしていない状態のオレンジボタンにする
+            if (this.hidePeriodicTable.Visibility == Visibility.Visible)
+            {
+                this.shownPeriodicTable.Visibility = Visibility.Visible;
+                this.hidePeriodicTable.Visibility = Visibility.Hidden;
+            }
+        }
+
+        /// <summary>
+        /// 計算履歴非表示ボタン押下処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hideHistory_Click(object sender, RoutedEventArgs e)
+        {
             this.Width = 500;
-            this.shownPeriodicTable.Visibility = Visibility.Visible;
-            this.hidePeriodicTable.Visibility = Visibility.Hidden;
+            this.shownHistory.Visibility = Visibility.Visible;
+            this.hideHistory.Visibility = Visibility.Hidden;
+            PeriodicGrid.Visibility = Visibility.Visible;
         }
 
         private void zero_Click(object sender, RoutedEventArgs e)
@@ -208,6 +274,29 @@ namespace easyCalc
             if (formulaString.Contains("÷"))
             {
                 formulaString = formulaString.Replace("÷", "/");
+            }
+
+            // 立方根以上の値をC#で使用できるものに置換
+            if (formulaString.Contains("]√"))
+            {
+                // 正規表現でキャッチしたい文字列パターン（被開平方数）
+                var pattern1 = @"√\((.*)?\)";
+
+                // 正規表現でキャッチしたい文字列パターン（指数）
+                var pattern2 = @"\[(.*)\]√";
+
+                Regex deletePattern = new Regex(@"\[.+\]");
+
+                // 被開平方数をC#で扱えるものに置換して式に戻す
+                // まずは被開平方数を正規表現を使用して取得する
+                var radicand = double.Parse(Regex.Match(formulaString, pattern1).Groups[1].Value);
+
+                // 指数をC#で扱えるものに置換して式に戻す
+                var exponent = 1 / double.Parse(Regex.Match(formulaString, pattern2).Groups[1].Value);
+
+                var sqrtResult = Math.Pow(radicand, exponent);
+
+                formulaString = deletePattern.Replace(formulaString,"");
             }
 
             // 掛け算割り算を置換した計算式を用いて値を計算する
@@ -690,32 +779,32 @@ namespace easyCalc
 
         private void sin_Click(object sender, RoutedEventArgs e)
         {
-
+            formulaText.Text += "sin()";
         }
 
         private void cos_Click(object sender, RoutedEventArgs e)
         {
-
+            formulaText.Text += "cos()";
         }
 
         private void tan_Click(object sender, RoutedEventArgs e)
         {
-
+            formulaText.Text += "tan()";
         }
 
         private void root_Click(object sender, RoutedEventArgs e)
         {
-
+            formulaText.Text += "[]√()";
         }
 
         private void squareRoot_Click(object sender, RoutedEventArgs e)
         {
-
+            formulaText.Text += "√()";
         }
 
         private void negativeSign_Click(object sender, RoutedEventArgs e)
         {
-
+            formulaText.Text += "-";
         }
 
         /// <summary>

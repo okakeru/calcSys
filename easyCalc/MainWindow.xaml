@@ -67,8 +67,18 @@
         </Grid.ColumnDefinitions>
         
         <!-- 画面拡大縮小ボタン -->
-        <Button Name="shownPeriodicTable" Grid.Column="1" Width="25" Height="25" Margin="0,10,0,650" Click="showPeriodicTable_Click" ToolTip="shown periodic table" Style="{StaticResource OpenButtonStyle}">→</Button>
-        <Button Name="hidePeriodicTable" Grid.Column="1" Width="25" Height="25" Margin="0,10,0,650" Click="hidePeriodicTable_Click" ToolTip="hide periodic table" Style="{StaticResource HiddenButtonStyle}">←</Button>
+        <Grid Name="spreadWindow" Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Button Name="shownPeriodicTable" Grid.Row="1" VerticalAlignment="Center" Width="25" Height="25" Click="showPeriodicTable_Click" ToolTip="shown periodic table" Style="{StaticResource OpenButtonStyle}">→</Button>
+            <Button Name="hidePeriodicTable" Grid.Row="1" VerticalAlignment="Center" Width="25" Height="25" Click="hidePeriodicTable_Click" ToolTip="hide periodic table" Style="{StaticResource HiddenButtonStyle}">←</Button>
+            <Button Name="shownHistory" Grid.Row="2" VerticalAlignment="Center" Width="25" Height="25" Click="shownHistory_Click" ToolTip="shown history" Style="{StaticResource OpenButtonStyle}">→</Button>
+            <Button Name="hideHistory" Grid.Row="2" VerticalAlignment="Center" Width="25" Height="25" Click="hideHistory_Click" ToolTip="hide history table" Style="{StaticResource HiddenButtonStyle}">←</Button>
+        </Grid>
 
         <!-- 画面左側 -->
         <Grid Grid.Row="0" Grid.Column="0">
@@ -79,7 +89,7 @@
             </Grid.RowDefinitions>
             
             <!-- 計算式テキストボックス -->
-            <TextBox Grid.Row="0" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" KeyDown="formulaText_KeyDown" VerticalContentAlignment="Center" FontSize="20"/>
+            <TextBox Grid.Row="0" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 計算結果テキストボックス -->
             <TextBox Grid.Row="1" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" FontSize="20"/>
@@ -121,7 +131,7 @@
                 <Button Name="sin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="sin_Click" ToolTip="sin">sin</Button>
                 <Button Name="cos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cos_Click" ToolTip="cos">cos</Button>
                 <Button Name="tan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="tan_Click" ToolTip="tan">tan</Button>
-                <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suareRoot">√</Button>
+                <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suare root">√</Button>
                 <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="root_Click" MouseEnter="root_MouseEnter" MouseLeave="root_MouseLeave" ToolTip="root">
                     <Image x:Name="rootImage" HorizontalAlignment="Center" VerticalAlignment="Center" Source="picture/root.png"/>
                 </Button>
@@ -141,7 +151,7 @@
         </Grid>
         
         <!-- 画面右側 -->
-        <Grid Grid.Row="0" Grid.Column="2">
+        <Grid Name="PeriodicGrid" Grid.Row="0" Grid.Column="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
