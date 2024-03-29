@@ -954,5 +954,18 @@ namespace easyCalc
         {
             rootImage.Source = new BitmapImage(new Uri("picture/root.png", UriKind.Relative));
         }
+
+        /// <summary>
+        /// 計算履歴グリッドの行をダブルクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void calculationHistoryGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataRowView selectedItem = (DataRowView)((MultiSelector)sender).SelectedItems[0];
+
+            formulaText.Text = selectedItem.Row.ItemArray[0].ToString();
+            resultText.Text = selectedItem.Row.ItemArray[1].ToString();
+        }
     }
 }

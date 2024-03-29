@@ -384,7 +384,7 @@
             <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="35" Text="Calculation History" VerticalAlignment="Center" Width="150" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
 
             <!-- 計算履歴表示用グリッド -->
-            <DataGrid Name="calculationHistoryGrid" Grid.Column="0" Grid.Row="1" Height="700" Width="600" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding Result}">
+            <DataGrid Name="calculationHistoryGrid" Grid.Column="0" Grid.Row="1" Height="700" Width="600" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding Result}" MouseDoubleClick="calculationHistoryGrid_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="formula" Width="500" Binding="{Binding formula}">
                         <DataGridTextColumn.HeaderStyle>
