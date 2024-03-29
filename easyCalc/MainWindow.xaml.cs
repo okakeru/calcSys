@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Text.RegularExpressions;
+using System.Windows.Controls.Primitives;
 
 namespace easyCalc
 {
@@ -66,7 +67,6 @@ namespace easyCalc
             btnMendelevium.Visibility = Visibility.Hidden;
             btnNobelium.Visibility = Visibility.Hidden;
             btnLawrencium.Visibility = Visibility.Hidden;
-
         }
 
         /// <summary>
@@ -81,6 +81,7 @@ namespace easyCalc
                 this.shownPeriodicTable.Visibility = Visibility.Hidden;
                 this.hidePeriodicTable.Visibility = Visibility.Visible;
                 PeriodicGrid.Visibility = Visibility.Visible;
+                historyGrid.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -88,6 +89,7 @@ namespace easyCalc
                 this.shownPeriodicTable.Visibility = Visibility.Hidden;
                 this.hidePeriodicTable.Visibility = Visibility.Visible;
                 PeriodicGrid.Visibility = Visibility.Visible;
+                historyGrid.Visibility = Visibility.Hidden;
             }
 
             // 周期表表示ボタンがクリックされた状態のままになってしまうため、クリックしていない状態のオレンジボタンにする
@@ -132,6 +134,7 @@ namespace easyCalc
             this.Width = 1150;
             this.shownHistory.Visibility = Visibility.Hidden;
             this.hideHistory.Visibility = Visibility.Visible;
+            historyGrid.Visibility = Visibility.Visible;
             PeriodicGrid.Visibility = Visibility.Hidden;
 
             // 周期表表示ボタンがクリックされた状態のままになってしまうため、クリックしていない状態のオレンジボタンにする
