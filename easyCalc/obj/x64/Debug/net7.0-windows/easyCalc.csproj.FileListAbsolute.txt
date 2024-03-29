@@ -50,3 +50,4 @@ C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\eas
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\bin\x64\Debug\net7.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\easyCalc.csproj.CopyComplete
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs

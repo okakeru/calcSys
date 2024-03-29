@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Text.RegularExpressions;
 using System.Windows.Controls.Primitives;
+using System.Data;
+using System.Collections.ObjectModel;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace easyCalc
 {
@@ -263,50 +266,90 @@ namespace easyCalc
             formulaText.Text += "-";
         }
 
+        /// <summary>
+        /// =ボタン押下処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equal_Click(object sender, RoutedEventArgs e)
         {
             // 計算式テキストボックスに×÷が入っているかを判断
             string formulaString = formulaText.Text;
 
-            // 計算式に入っている掛け算割り算記号をC#で使用できるものに置換
-            if (formulaString.Contains("×"))
+            if (formulaString != "")
             {
-                formulaString = formulaString.Replace("×","*");
-            }
+                // 計算式に入っている掛け算割り算記号をC#で使用できるものに置換
+                if (formulaString.Contains("×"))
+                {
+                    formulaString = formulaString.Replace("×", "*");
+                }
 
-            if (formulaString.Contains("÷"))
+                if (formulaString.Contains("÷"))
+                {
+                    formulaString = formulaString.Replace("÷", "/");
+                }
+
+                // 立方根以上の値をC#で使用できるものに置換
+                if (formulaString.Contains("]√"))
+                {
+                    // 正規表現でキャッチしたい文字列パターン（被開平方数）
+                    var pattern1 = @"√\((.*)?\)";
+
+                    // 正規表現でキャッチしたい文字列パターン（指数）
+                    var pattern2 = @"\[(.*)\]√";
+
+                    Regex deletePattern = new Regex(@"\[.+\]");
+
+                    // 被開平方数をC#で扱えるものに置換して式に戻す
+                    // まずは被開平方数を正規表現を使用して取得する
+                    var radicand = double.Parse(Regex.Match(formulaString, pattern1).Groups[1].Value);
+
+                    // 指数をC#で扱えるものに置換して式に戻す
+                    var exponent = 1 / double.Parse(Regex.Match(formulaString, pattern2).Groups[1].Value);
+
+                    var sqrtResult = Math.Pow(radicand, exponent);
+
+                    formulaString = deletePattern.Replace(formulaString, "");
+                }
+
+                // 掛け算割り算を置換した計算式を用いて値を計算する
+                System.Data.DataTable dt = new System.Data.DataTable();
+                string result = dt.Compute(formulaString, "").ToString();
+
+                resultText.Text = result;
+
+                // dataGridに表示するDataTableを作成する
+                DataTable newDataTable = new DataTable();
+
+                // DataTableに列を追加
+                newDataTable.Columns.Add("formula", typeof(string));
+                newDataTable.Columns.Add("result", typeof(string));
+
+                if (calculationHistoryGrid.Items.Count > 1)
+                {
+                    foreach (var item in calculationHistoryGrid.Items)
+                    {
+                        // 画面上のdataGridからデータを取得する
+                        DataGridRow row = (DataGridRow)item;
+
+                        newDataTable.Rows.Add(row);
+                    }
+                }
+
+                DataRow newData = newDataTable.NewRow();
+                newData["formula"] = formulaText.Text;
+                newData["result"] = result;
+
+                newDataTable.Rows.Add(newData);
+
+                // DataGridにバインドされているDataTableを再設定する
+                calculationHistoryGrid.ItemsSource = newDataTable.DefaultView;
+
+            }
+            else
             {
-                formulaString = formulaString.Replace("÷", "/");
+                MessageBox.Show("計算式を入力してください。");
             }
-
-            // 立方根以上の値をC#で使用できるものに置換
-            if (formulaString.Contains("]√"))
-            {
-                // 正規表現でキャッチしたい文字列パターン（被開平方数）
-                var pattern1 = @"√\((.*)?\)";
-
-                // 正規表現でキャッチしたい文字列パターン（指数）
-                var pattern2 = @"\[(.*)\]√";
-
-                Regex deletePattern = new Regex(@"\[.+\]");
-
-                // 被開平方数をC#で扱えるものに置換して式に戻す
-                // まずは被開平方数を正規表現を使用して取得する
-                var radicand = double.Parse(Regex.Match(formulaString, pattern1).Groups[1].Value);
-
-                // 指数をC#で扱えるものに置換して式に戻す
-                var exponent = 1 / double.Parse(Regex.Match(formulaString, pattern2).Groups[1].Value);
-
-                var sqrtResult = Math.Pow(radicand, exponent);
-
-                formulaString = deletePattern.Replace(formulaString,"");
-            }
-
-            // 掛け算割り算を置換した計算式を用いて値を計算する
-            System.Data.DataTable dt = new System.Data.DataTable();
-            double result = (double)dt.Compute(formulaString, "");
-
-            resultText.Text = result.ToString();
         }
 
         /// <summary>
@@ -319,63 +362,69 @@ namespace easyCalc
             // 押下されたキーの文字を取得
             string pressKey = e.Key.ToString();
 
+            // カレットの位置を取得
+            int selectPos = formulaText.SelectionStart;
+
+            // 式のテキストボックスに入力されている文字列
+            string formulaString = formulaText.Text;
+
             // テンキー押下時処理追加
             // 文字の場合は無視
             if (pressKey == "D0" || pressKey == "NumPad0")
             {
-                formulaText.Text += "0";
+                formulaString = formulaString.Insert(selectPos, "0");
             }
             else if (pressKey == "D1" || pressKey == "NumPad1")
             {
-                formulaText.Text += "1";
+                formulaString = formulaString.Insert(selectPos, "1");
             }
             else if (pressKey == "D2" || pressKey == "NumPad2")
             {
-                formulaText.Text += "2";
+                formulaString = formulaString.Insert(selectPos, "2");
             }
             else if (pressKey == "D3" || pressKey == "NumPad3")
             {
-                formulaText.Text += "3";
+                formulaString = formulaString.Insert(selectPos, "3");
             }
             else if (pressKey == "D4" || pressKey == "NumPad4")
             {
-                formulaText.Text += "4";
+                formulaString = formulaString.Insert(selectPos, "4");
             }
             else if (pressKey == "D5" || pressKey == "NumPad5")
             {
-                formulaText.Text += "5";
+                formulaString = formulaString.Insert(selectPos, "5");
             }
             else if (pressKey == "D6" || pressKey == "NumPad6")
             {
-                formulaText.Text += "6";
+                formulaString = formulaString.Insert(selectPos, "6");
             }
             else if (pressKey == "D7" || pressKey == "NumPad7")
             {
-                formulaText.Text += "7";
+                formulaString = formulaString.Insert(selectPos, "7");
             }
             else if (pressKey == "D8" || pressKey == "NumPad8")
             {
-                formulaText.Text += "8";
+                formulaString = formulaString.Insert(selectPos, "8");
             }
             else if (pressKey == "D9" || pressKey == "NumPad9")
             {
-                formulaText.Text += "9";
+                formulaString = formulaString.Insert(selectPos, "9");
             }
             else if (pressKey == "Add")
             {
-                formulaText.Text += "+";
+                formulaString = formulaString.Insert(selectPos, "+");
             }
             else if (pressKey == "Subtract")
             {
-                formulaText.Text += "-";
+                formulaString = formulaString.Insert(selectPos, "-");
             }
             else if (pressKey == "Multiply")
             {
-                formulaText.Text += "×";
+                formulaString = formulaString.Insert(selectPos, "×");
             }
             else if (pressKey == "Divide")
             {
-                formulaText.Text += "÷";
+                formulaString = formulaString.Insert(selectPos, "÷");
             }
             else if (pressKey == "Return")
             {
@@ -388,7 +437,7 @@ namespace easyCalc
             }
 
             // テキストボックス内のカーソル位置を最後尾に設定
-            formulaText.Select(formulaText.Text.Length, 0);
+            formulaText.Text = formulaString;
 
             // keyDownイベントを伝播せずテキスト入力を行う（キーボード入力時2重入力を防ぐ）
             e.Handled = true;

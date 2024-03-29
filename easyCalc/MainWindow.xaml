@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Windows版関数電卓" Height="800" Width="1150"
         ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:MainWindowData/>
+    </Window.DataContext>
     <Window.Resources>
         <Style x:Key="OpenButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Aquamarine"/>
@@ -381,9 +384,9 @@
             <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="35" Text="Calculation History" VerticalAlignment="Center" Width="150" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
 
             <!-- 計算履歴表示用グリッド -->
-            <DataGrid Name="calculationHistoryGrid" Grid.Column="0" Grid.Row="1" Height="700" Width="600" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <DataGrid Name="calculationHistoryGrid" Grid.Column="0" Grid.Row="1" Height="700" Width="600" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding Result}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="formula" Width="500">
+                    <DataGridTextColumn Header="formula" Width="500" Binding="{Binding formula}">
                         <DataGridTextColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="Width" Value="500"/>
@@ -391,7 +394,7 @@
                             </Style>
                         </DataGridTextColumn.HeaderStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="answer" Width="100">
+                    <DataGridTextColumn Header="answer" Width="100" Binding="{Binding result}">
                         <DataGridTextColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="Width" Value="100"/>
