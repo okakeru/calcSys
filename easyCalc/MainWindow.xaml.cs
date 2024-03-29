@@ -163,62 +163,137 @@ namespace easyCalc
 
         private void zero_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "0";
         }
 
         private void one_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "1";
         }
 
         private void two_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "2";
         }
 
         private void three_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "3";
         }
 
         private void four_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "4";
         }
 
         private void five_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "5";
         }
 
         private void six_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "6";
         }
 
         private void seven_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "7";
         }
 
         private void eight_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "8";
         }
 
         private void nine_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += "9";
         }
 
         private void period_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
+
             formulaText.Text += ".";
         }
 
         private void exponential_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// イコールクリック後に新しく数式を入力する
+        /// </summary>
+        private void newInput()
+        {
+            formulaText.Text = "";
+            resultText.Text = "";
         }
 
         /// <summary>
@@ -327,12 +402,13 @@ namespace easyCalc
 
                 if (calculationHistoryGrid.Items.Count > 1)
                 {
-                    foreach (var item in calculationHistoryGrid.Items)
+                    foreach (DataRowView item in calculationHistoryGrid.ItemsSource)
                     {
                         // 画面上のdataGridからデータを取得する
-                        DataGridRow row = (DataGridRow)item;
+                        DataGridRow row = new DataGridRow();
+                        row.DataContext = item;
 
-                        newDataTable.Rows.Add(row);
+                        newDataTable.Rows.Add(item.Row.ItemArray[0], item.Row.ItemArray[1]);
                     }
                 }
 
