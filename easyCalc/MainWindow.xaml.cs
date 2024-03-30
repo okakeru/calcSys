@@ -39,6 +39,7 @@ namespace easyCalc
             ActinoidLabel.Visibility = Visibility.Hidden;
             LanthanoidLabel.Visibility = Visibility.Visible;
 
+            // 周期表のアクチノイドとランタノイドの表示非表示を設定
             btnLanthanum.Visibility = Visibility.Visible;
             btnCerium.Visibility = Visibility.Visible;
             btnPraseodymium.Visibility = Visibility.Visible;
@@ -70,6 +71,8 @@ namespace easyCalc
             btnMendelevium.Visibility = Visibility.Hidden;
             btnNobelium.Visibility = Visibility.Hidden;
             btnLawrencium.Visibility = Visibility.Hidden;
+
+            
         }
 
         /// <summary>
@@ -939,26 +942,6 @@ namespace easyCalc
         private void negativeSign_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "-";
-        }
-
-        /// <summary>
-        /// ルートボタンにカーソルを載せた時のイベント
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void root_MouseEnter(object sender, MouseEventArgs e)
-        {
-            rootImage.Source = new BitmapImage(new Uri("picture/mouseOverOfRoot.png", UriKind.Relative));
-        }
-
-        /// <summary>
-        /// ルートボタンからカーソルを離した時のイベント
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void root_MouseLeave(object sender, MouseEventArgs e)
-        {
-            rootImage.Source = new BitmapImage(new Uri("picture/root.png", UriKind.Relative));
         }
 
         /// <summary>

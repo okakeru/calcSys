@@ -61,6 +61,9 @@
         </Style>
 
     </Window.Resources>
+    
+    <!-- メニューバー -->
+    
 
     <Grid Name="windowGrid" Background="LightGray">
         <Grid.ColumnDefinitions>
@@ -68,7 +71,20 @@
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Name="periodicTableColumn" Width="625"/>
         </Grid.ColumnDefinitions>
-        
+
+        <StackPanel Grid.ColumnSpan="2">
+            <Menu>
+                <MenuItem Header="ファイル">
+                    <MenuItem Header="開く"/>
+                    <MenuItem Header="新規">
+                        <MenuItem Header="雛形"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="編集"/>
+                <MenuItem Header="印刷"/>
+            </Menu>
+        </StackPanel>
+
         <!-- 画面拡大縮小ボタン -->
         <Grid Name="spreadWindow" Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
@@ -135,9 +151,7 @@
                 <Button Name="cos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cos_Click" ToolTip="cos">cos</Button>
                 <Button Name="tan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="tan_Click" ToolTip="tan">tan</Button>
                 <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suare root">√</Button>
-                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="root_Click" MouseEnter="root_MouseEnter" MouseLeave="root_MouseLeave" ToolTip="root">
-                    <Image x:Name="rootImage" HorizontalAlignment="Center" VerticalAlignment="Center" Source="picture/root.png"/>
-                </Button>
+                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="root_Click" ToolTip="root">n√</Button>
                 <Button Name="negativeSign" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="negativeSign_Click" ToolTip="negative sign">(ー)</Button>
                 
                 <Button Name="period" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="period_Click">.</Button>
