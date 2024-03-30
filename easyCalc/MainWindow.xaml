@@ -74,14 +74,12 @@
 
         <StackPanel Grid.ColumnSpan="2">
             <Menu>
-                <MenuItem Header="ファイル">
-                    <MenuItem Header="開く"/>
-                    <MenuItem Header="新規">
-                        <MenuItem Header="雛形"/>
-                    </MenuItem>
+                <MenuItem Header="file">
+                    <MenuItem Header="open"/>
+                    <MenuItem Header="save"/>
                 </MenuItem>
-                <MenuItem Header="編集"/>
-                <MenuItem Header="印刷"/>
+                <MenuItem Header="buttonStyle" Click="buttonStyle_Click"/>
+                <MenuItem Header="language" Click="language_Click"/>
             </Menu>
         </StackPanel>
 

@@ -7,6 +7,20 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="buttonStyle\buttonStyle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="language\language.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="buttonStyle\buttonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="language\language.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

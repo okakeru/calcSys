@@ -18,6 +18,7 @@ using System.Windows.Controls.Primitives;
 using System.Data;
 using System.Collections.ObjectModel;
 using static System.Net.Mime.MediaTypeNames;
+using easyCalc.language;
 
 namespace easyCalc
 {
@@ -956,5 +957,30 @@ namespace easyCalc
             formulaText.Text = selectedItem.Row.ItemArray[0].ToString();
             resultText.Text = selectedItem.Row.ItemArray[1].ToString();
         }
+
+        /// <summary>
+        /// 文字盤のスタイル編集画面オープン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonStyle_Click(object sender, RoutedEventArgs e)
+        {
+            var buttonStyleScreen = new buttonStyle.buttonStyle(this);
+            buttonStyleScreen.Show();
+            this.Visibility = Visibility.Hidden;
+        }
+        
+        /// <summary>
+        /// 画面上の言語編集画面オープン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void language_Click(object sender, RoutedEventArgs e)
+        {
+            var languageScreen = new language.language(this);
+            languageScreen.Show();
+            this.Visibility = Visibility.Hidden;
+        }
+
     }
 }

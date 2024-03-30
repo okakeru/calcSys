@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\App.xaml
-11407045341
+3753199669
 
-6-1151786831
+8-805031477
 199-469609502
-MainWindow.xaml;
+buttonStyle\buttonStyle.xaml;language\language.xaml;MainWindow.xaml;
 
 False
 
