@@ -348,6 +348,9 @@ namespace easyCalc
         /// <param name="e"></param>
         private void equal_Click(object sender, RoutedEventArgs e)
         {
+            // 画面上のdataGridを編集可能にする
+            calculationHistoryGrid.IsReadOnly = false;
+
             // 計算式テキストボックスに×÷が入っているかを判断
             string formulaString = formulaText.Text;
 
@@ -426,6 +429,9 @@ namespace easyCalc
             {
                 MessageBox.Show("計算式を入力してください。");
             }
+
+            // 画面上のdataGridを編集不可にする
+            calculationHistoryGrid.IsReadOnly = true;
         }
 
         /// <summary>
