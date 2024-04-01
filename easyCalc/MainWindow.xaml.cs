@@ -380,23 +380,37 @@ namespace easyCalc
                     // 正規表現でキャッチしたい文字列パターン（指数）
                     var pattern2 = @"\[(.*)\]√";
 
-                    Regex deletePattern = new Regex(@"\[.+\]");
+                    // 立方根以上の部分を取得
+                    var pattern3 = @"\[(.*?)\]√\((.*?)\)";
 
                     // 被開平方数をC#で扱えるものに置換して式に戻す
                     // まずは被開平方数を正規表現を使用して取得する
-                    var radicand = double.Parse(Regex.Match(formulaString, pattern1).Groups[1].Value);
+                    var redicandArray = Regex.Matches(formulaString, pattern3);
+                    
+                    // 複数マッチした場合
+                    for (var i = 0; i <= redicandArray.Count - 1; i++)
+                    {
+                        // マッチしている立方根以上の値の被開平方数を取得（1行目の処理ではルートも含むすべてを取得）
+                        var openSquareNumber = Regex.Match(redicandArray[i].Value, pattern1);
+                        double openSquareNumberValue = double.Parse(Regex.Match(openSquareNumber.Value, "[0-9]+").Value);
 
-                    // 指数をC#で扱えるものに置換して式に戻す
-                    var exponent = 1 / double.Parse(Regex.Match(formulaString, pattern2).Groups[1].Value);
+                        // マッチしている立方根以上の値の指数を取得
+                        var squareNumber = Regex.Match(redicandArray[i].Value, pattern2);
+                        double squareNumberValue = double.Parse(Regex.Match(squareNumber.Value, "[0-9]+").Value);
 
-                    var sqrtResult = Math.Pow(radicand, exponent);
+                        // マッチしている立方根以上の値をC#で扱えるものに置換して計算する
+                        double newSquareNumber = Math.Pow(openSquareNumberValue, 1/squareNumberValue);
 
-                    formulaString = deletePattern.Replace(formulaString, "");
+                        formulaString = formulaString.Replace(redicandArray[i].Value, newSquareNumber.ToString());
+                    }
                 }
 
-                // 掛け算割り算を置換した計算式を用いて値を計算する
+                // 置換処理を経た計算式はすべて文字列となってしまうため、DataTable内で計算させて返す
                 System.Data.DataTable dt = new System.Data.DataTable();
-                string result = dt.Compute(formulaString, "").ToString();
+                string s = dt.Compute(formulaString, "").ToString();
+
+                // 上記の置換処理を経た計算を実行する
+                string result = s;
 
                 resultText.Text = result;
 

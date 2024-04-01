@@ -69,7 +69,7 @@ namespace easyCalc.language {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/easyCalc;V1.0.0.0;component/language/language.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/easyCalc;component/language/language.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\language\language.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
