@@ -60,11 +60,34 @@
             </Setter>
         </Style>
 
+        <!-- アルカリ金属のボタン色定義 -->
+        <Style x:Key="AlkaliMetalButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightSkyBlue"/>
+        </Style>
+
+        <!-- アルカリ土類金属のボタン色定義 -->
+        <Style x:Key="AlkalineEarthMetalsButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightGreen"/>
+        </Style>
+
+        <!-- ハロゲンボタン色定義 -->
+        <Style x:Key="HalogenButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Orange"/>
+        </Style>
+
+        <!-- 希ガスボタン色定義 -->
+        <Style x:Key="NobleGasButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="OrangeRed"/>
+        </Style>
+
+        <!-- それ以外のボタン色定義 -->
+        <Style x:Key="NormalButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+        </Style>
+        
     </Window.Resources>
     
     <!-- メニューバー -->
-    
-
     <Grid Name="windowGrid" Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Name="calcColumn" Width="450"/>
@@ -73,7 +96,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.ColumnSpan="2">
-            <Menu>
+            <Menu FontFamily="Times New Roman">
                 <MenuItem Header="file">
                     <MenuItem Header="open"/>
                     <MenuItem Header="save"/>
@@ -100,19 +123,23 @@
         <!-- 画面左側 -->
         <Grid Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="500"/>
             </Grid.RowDefinitions>
             
             <!-- 計算式テキストボックス -->
-            <TextBox Grid.Row="0" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+            <Label Grid.Row="0" Height="50" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontFamily="Times New Roman">Formula</Label>
+            <TextBox Grid.Row="1" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 計算結果テキストボックス -->
-            <TextBox Grid.Row="1" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" FontSize="20"/>
+            <Label Grid.Row="2" Height="50" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontFamily="Times New Roman">Solution</Label>
+            <TextBox Grid.Row="3" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 入力ボタン部 -->
-            <Grid Grid.Row="2" Grid.Column="0">
+            <Grid Grid.Row="4" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70"/>
                     <RowDefinition Height="70"/>
@@ -131,42 +158,42 @@
                 </Grid.ColumnDefinitions>
                 
                 <!-- 数字部 -->
-                <Button Name="zero" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="zero_Click">0</Button>
-                <Button Name="one" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="one_Click">1</Button>
-                <Button Name="two" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="two_Click">2</Button>
-                <Button Name="three" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="three_Click">3</Button>
-                <Button Name="four" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="four_Click">4</Button>
-                <Button Name="five" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="five_Click">5</Button>
-                <Button Name="six" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="six_Click">6</Button>
-                <Button Name="seven" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="seven_Click">7</Button>
-                <Button Name="eight" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="eight_Click">8</Button>
-                <Button Name="nine" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nine_Click">9</Button>
+                <Button Name="zero" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="zero_Click" FontFamily="Times New Roman">0</Button>
+                <Button Name="one" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="one_Click" FontFamily="Times New Roman">1</Button>
+                <Button Name="two" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="two_Click" FontFamily="Times New Roman">2</Button>
+                <Button Name="three" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="three_Click" FontFamily="Times New Roman">3</Button>
+                <Button Name="four" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="four_Click" FontFamily="Times New Roman">4</Button>
+                <Button Name="five" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="five_Click" FontFamily="Times New Roman">5</Button>
+                <Button Name="six" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="six_Click" FontFamily="Times New Roman">6</Button>
+                <Button Name="seven" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="seven_Click" FontFamily="Times New Roman">7</Button>
+                <Button Name="eight" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="eight_Click" FontFamily="Times New Roman">8</Button>
+                <Button Name="nine" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nine_Click" FontFamily="Times New Roman">9</Button>
                 
                 <!-- 記号部 -->
-                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm" >log</Button>
-                <Button Name="naturalLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="naturalLogarithm_Click" ToolTip="natural logarithm">ln</Button>
-                <Button Name="sin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="sin_Click" ToolTip="sin">sin</Button>
-                <Button Name="cos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cos_Click" ToolTip="cos">cos</Button>
-                <Button Name="tan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="tan_Click" ToolTip="tan">tan</Button>
-                <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suare root">√</Button>
-                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="root_Click" ToolTip="root">n√</Button>
-                <Button Name="negativeSign" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="negativeSign_Click" ToolTip="negative sign">(ー)</Button>
-                
-                <Button Name="period" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="period_Click">.</Button>
-                <Button Name="exponential" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="exponential_Click">^X</Button>
-                <Button Name="allClear" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="allClear_Click">AC</Button>
-                <Button Name="clear" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="clear_Click">C</Button>
-                <Button Name="multiplication" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="multiplication_Click">×</Button>
-                <Button Name="division" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="division_Click">÷</Button>
-                <Button Name="plus" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="plus_Click">＋</Button>
-                <Button Name="minas" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="minas_Click">－</Button>
-                <Button Name="equal" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="equal_Click">＝</Button>
+                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm" FontFamily="Times New Roman">log</Button>
+                <Button Name="naturalLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="naturalLogarithm_Click" ToolTip="natural logarithm" FontFamily="Times New Roman">ln</Button>
+                <Button Name="sin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="sin_Click" ToolTip="sin" FontFamily="Times New Roman">sin</Button>
+                <Button Name="cos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cos_Click" ToolTip="cos" FontFamily="Times New Roman">cos</Button>
+                <Button Name="tan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="tan_Click" ToolTip="tan" FontFamily="Times New Roman">tan</Button>
+                <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suare root" FontFamily="Times New Roman">√</Button>
+                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="root_Click" ToolTip="root" FontFamily="Times New Roman">n√</Button>
+                <Button Name="negativeSign" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="negativeSign_Click" ToolTip="negative sign" FontFamily="Times New Roman">(ー)</Button>
+
+                <Button Name="period" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="period_Click" FontFamily="Times New Roman">.</Button>
+                <Button Name="exponential" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="exponential_Click" FontFamily="Times New Roman">^X</Button>
+                <Button Name="allClear" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="allClear_Click" FontFamily="Times New Roman">AC</Button>
+                <Button Name="clear" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="clear_Click" FontFamily="Times New Roman">C</Button>
+                <Button Name="multiplication" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="multiplication_Click" FontFamily="Times New Roman">×</Button>
+                <Button Name="division" Height="50" Width="50" FontSize="20" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="division_Click" FontFamily="Times New Roman">÷</Button>
+                <Button Name="plus" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="plus_Click" FontFamily="Times New Roman">＋</Button>
+                <Button Name="minas" Height="50" Width="50" FontSize="20" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="minas_Click" FontFamily="Times New Roman">－</Button>
+                <Button Name="equal" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="equal_Click" FontFamily="Times New Roman">＝</Button>
             </Grid>
             
         </Grid>
         
         <!-- 画面右側 -->
-        <Grid Name="PeriodicGrid" Grid.Row="0" Grid.Column="2" Visibility="Hidden">
+        <Grid Name="PeriodicGrid" Grid.Row="0" Grid.Column="2" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
@@ -224,169 +251,169 @@
             <!-- 周期表タイトル -->
             <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="35" Text="Periodic Table" VerticalAlignment="Center" Width="100" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
 
-            <Label Name="nameInMoleculesAtom1" Grid.Column="0" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom2" Grid.Column="4" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom3" Grid.Column="8" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom4" Grid.Column="12" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom5" Grid.Column="16" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom6" Grid.Column="20" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom7" Grid.Column="24" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom8" Grid.Column="28" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            <Label Name="nameInMoleculesAtom9" Grid.Column="32" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            <Label Name="nameInMoleculesAtom1" Grid.Column="0" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Label Name="nameInMoleculesAtom2" Grid.Column="4" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Label Name="nameInMoleculesAtom3" Grid.Column="8" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Label Name="nameInMoleculesAtom4" Grid.Column="12" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Label Name="nameInMoleculesAtom5" Grid.Column="16" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Label Name="nameInMoleculesAtom6" Grid.Column="20" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Label Name="nameInMoleculesAtom7" Grid.Column="24" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Label Name="nameInMoleculesAtom8" Grid.Column="28" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Label Name="nameInMoleculesAtom9" Grid.Column="32" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
 
-            <TextBox Name="valueInMoleculesAtom1" Grid.Column="2" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom2" Grid.Column="6" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom3" Grid.Column="10" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom4" Grid.Column="14" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom5" Grid.Column="18" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom6" Grid.Column="22" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom7" Grid.Column="26" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom8" Grid.Column="30" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
-            <TextBox Name="valueInMoleculesAtom9" Grid.Column="34" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+            <TextBox Name="valueInMoleculesAtom1" Grid.Column="2" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
+            <TextBox Name="valueInMoleculesAtom2" Grid.Column="6" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
+            <TextBox Name="valueInMoleculesAtom3" Grid.Column="10" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
+            <TextBox Name="valueInMoleculesAtom4" Grid.Column="14" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
+            <TextBox Name="valueInMoleculesAtom5" Grid.Column="18" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
+            <TextBox Name="valueInMoleculesAtom6" Grid.Column="22" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
+            <TextBox Name="valueInMoleculesAtom7" Grid.Column="26" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
+            <TextBox Name="valueInMoleculesAtom8" Grid.Column="30" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
+            <TextBox Name="valueInMoleculesAtom9" Grid.Column="34" Grid.Row="2" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman" IsReadOnly="True"></TextBox>
 
             <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="12" Text="Total atomic mass" VerticalAlignment="Center" Width="150" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
-            <TextBox Name="totalAtomicMassText" Grid.Column="11" Grid.Row="3" Grid.ColumnSpan="10" Width="150" Height="40" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Button Name="copyAtomicMass" Grid.Column="22" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="copyAtomicMass_Click" ToolTip="Copy molecular weight.">Copy</Button>
-            <Button Name="clearAtomicMass" Grid.Column="28" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="clearAtomicMass_Click" ToolTip="Delete number of atoms and molecular weight.">Clear</Button>
+            <TextBox Name="totalAtomicMassText" Grid.Column="11" Grid.Row="3" Grid.ColumnSpan="10" Width="150" Height="40" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman"/>
+            <Button Name="copyAtomicMass" Grid.Column="22" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="copyAtomicMass_Click" ToolTip="Copy molecular weight." FontFamily="Times New Roman">Copy</Button>
+            <Button Name="clearAtomicMass" Grid.Column="28" Grid.Row="3" Grid.ColumnSpan="5" Width="70" Height="30" Click="clearAtomicMass_Click" ToolTip="Delete number of atoms and molecular weight." FontFamily="Times New Roman">Clear</Button>
 
-            <Button Name="btnHydrogen" Grid.Column="0" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hydrogen" Click="clickOfAtom">H</Button>
-            <Button Name="btnHelium" Grid.Column="36" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Helium" Click="clickOfAtom">He</Button>
+            <Button Name="btnHydrogen" Grid.Column="0" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hydrogen" Click="clickOfAtom" Style="{StaticResource AlkaliMetalButtonStyle}" FontFamily="Times New Roman">H</Button>
+            <Button Name="btnHelium" Grid.Column="36" Grid.Row="4" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Helium" Click="clickOfAtom" Style="{StaticResource NobleGasButtonStyle}" FontFamily="Times New Roman">He</Button>
 
-            <Button Name="btnLithium" Grid.Column="0" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lithium" Click="clickOfAtom">Li</Button>
-            <Button Name="btnBeryllium" Grid.Column="2" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Beryllium" Click="clickOfAtom">Be</Button>
-            <Button Name="btnBoron" Grid.Column="24" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Boron" Click="clickOfAtom">B</Button>
-            <Button Name="btnCarbon" Grid.Column="26" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Carbon" Click="clickOfAtom">C</Button>
-            <Button Name="btnNitrogen" Grid.Column="28" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Nitrogen" Click="clickOfAtom">N</Button>
-            <Button Name="btnOxygen" Grid.Column="30" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Oxygen" Click="clickOfAtom">O</Button>
-            <Button Name="btnFluorine" Grid.Column="32" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Fluorine" Click="clickOfAtom">F</Button>
-            <Button Name="btnNeon" Grid.Column="34" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Neon" Click="clickOfAtom">Ne</Button>
+            <Button Name="btnLithium" Grid.Column="0" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lithium" Click="clickOfAtom" Style="{StaticResource AlkaliMetalButtonStyle}" FontFamily="Times New Roman">Li</Button>
+            <Button Name="btnBeryllium" Grid.Column="2" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Beryllium" Click="clickOfAtom" Style="{StaticResource AlkalineEarthMetalsButtonStyle}" FontFamily="Times New Roman">Be</Button>
+            <Button Name="btnBoron" Grid.Column="24" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Boron" Click="clickOfAtom" FontFamily="Times New Roman">B</Button>
+            <Button Name="btnCarbon" Grid.Column="26" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Carbon" Click="clickOfAtom" FontFamily="Times New Roman">C</Button>
+            <Button Name="btnNitrogen" Grid.Column="28" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Nitrogen" Click="clickOfAtom" FontFamily="Times New Roman">N</Button>
+            <Button Name="btnOxygen" Grid.Column="30" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Oxygen" Click="clickOfAtom" FontFamily="Times New Roman">O</Button>
+            <Button Name="btnFluorine" Grid.Column="32" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Fluorine" Click="clickOfAtom" Style="{StaticResource HalogenButtonStyle}" FontFamily="Times New Roman">F</Button>
+            <Button Name="btnNeon" Grid.Column="34" Grid.Row="5" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Neon" Click="clickOfAtom" Style="{StaticResource NobleGasButtonStyle}" FontFamily="Times New Roman">Ne</Button>
 
-            <Button Name="btnSodium" Grid.Column="0" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Sodium" Click="clickOfAtom">Na</Button>
-            <Button Name="btnMagnesium" Grid.Column="2" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Magnesium" Click="clickOfAtom">Mg</Button>
-            <Button Name="btnAluminium" Grid.Column="24" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Aluminium" Click="clickOfAtom">Al</Button>
-            <Button Name="btnSilicon" Grid.Column="26" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Silicon" Click="clickOfAtom">Si</Button>
-            <Button Name="btnPhosphorus" Grid.Column="28" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Phosphorus" Click="clickOfAtom">P</Button>
-            <Button Name="btnSulfur" Grid.Column="30" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Sulfur" Click="clickOfAtom">S</Button>
-            <Button Name="btnChlorine" Grid.Column="32" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Chlorine" Click="clickOfAtom">Cl</Button>
-            <Button Name="btnArgon" Grid.Column="34" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Argon" Click="clickOfAtom">Ar</Button>
+            <Button Name="btnSodium" Grid.Column="0" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Sodium" Click="clickOfAtom" Style="{StaticResource AlkaliMetalButtonStyle}" FontFamily="Times New Roman">Na</Button>
+            <Button Name="btnMagnesium" Grid.Column="2" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Magnesium" Click="clickOfAtom" Style="{StaticResource AlkalineEarthMetalsButtonStyle}" FontFamily="Times New Roman">Mg</Button>
+            <Button Name="btnAluminium" Grid.Column="24" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Aluminium" Click="clickOfAtom" FontFamily="Times New Roman">Al</Button>
+            <Button Name="btnSilicon" Grid.Column="26" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Silicon" Click="clickOfAtom" FontFamily="Times New Roman">Si</Button>
+            <Button Name="btnPhosphorus" Grid.Column="28" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Phosphorus" Click="clickOfAtom" FontFamily="Times New Roman">P</Button>
+            <Button Name="btnSulfur" Grid.Column="30" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Sulfur" Click="clickOfAtom" FontFamily="Times New Roman">S</Button>
+            <Button Name="btnChlorine" Grid.Column="32" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Chlorine" Click="clickOfAtom" Style="{StaticResource HalogenButtonStyle}" FontFamily="Times New Roman">Cl</Button>
+            <Button Name="btnArgon" Grid.Column="34" Grid.Row="6" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Argon" Click="clickOfAtom" Style="{StaticResource NobleGasButtonStyle}" FontFamily="Times New Roman">Ar</Button>
 
-            <Button Name="btnPotassium" Grid.Column="0" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Potassium" Click="clickOfAtom">K</Button>
-            <Button Name="btnCalcium" Grid.Column="2" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Calcium" Click="clickOfAtom">Ca</Button>
-            <Button Name="btnScandium" Grid.Column="4" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Scandium" Click="clickOfAtom">Sc</Button>
-            <Button Name="btnTitanium" Grid.Column="6" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Titanium" Click="clickOfAtom">Ti</Button>
-            <Button Name="btnVanadium" Grid.Column="8" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Vanadium" Click="clickOfAtom">V</Button>
-            <Button Name="btnChromium" Grid.Column="10" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Chromium" Click="clickOfAtom">Cr</Button>
-            <Button Name="btnManganese" Grid.Column="12" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Manganese" Click="clickOfAtom">Mn</Button>
-            <Button Name="btnIron" Grid.Column="14" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Iron" Click="clickOfAtom">Fe</Button>
-            <Button Name="btnCobalt" Grid.Column="16" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Cobalt" Click="clickOfAtom">Co</Button>
-            <Button Name="btnNickel" Grid.Column="18" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Nickel" Click="clickOfAtom">Ni</Button>
-            <Button Name="btnCopper" Grid.Column="20" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Copper" Click="clickOfAtom">Cu</Button>
-            <Button Name="btnZinc" Grid.Column="22" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Zinc" Click="clickOfAtom">Zn</Button>
-            <Button Name="btnGallium" Grid.Column="24" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Gallium" Click="clickOfAtom">Ga</Button>
-            <Button Name="btnGermanium" Grid.Column="26" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Germanium" Click="clickOfAtom">Ge</Button>
-            <Button Name="btnArsenic" Grid.Column="28" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Arsenic" Click="clickOfAtom">As</Button>
-            <Button Name="btnSelenium" Grid.Column="30" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Selenium" Click="clickOfAtom">Se</Button>
-            <Button Name="btnBromine" Grid.Column="32" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Bromine" Click="clickOfAtom">Br</Button>
-            <Button Name="btnKrypton" Grid.Column="34" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Krypton" Click="clickOfAtom">Kr</Button>
+            <Button Name="btnPotassium" Grid.Column="0" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Potassium" Click="clickOfAtom" Style="{StaticResource AlkaliMetalButtonStyle}" FontFamily="Times New Roman">K</Button>
+            <Button Name="btnCalcium" Grid.Column="2" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Calcium" Click="clickOfAtom" Style="{StaticResource AlkalineEarthMetalsButtonStyle}" FontFamily="Times New Roman">Ca</Button>
+            <Button Name="btnScandium" Grid.Column="4" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Scandium" Click="clickOfAtom" FontFamily="Times New Roman">Sc</Button>
+            <Button Name="btnTitanium" Grid.Column="6" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Titanium" Click="clickOfAtom" FontFamily="Times New Roman">Ti</Button>
+            <Button Name="btnVanadium" Grid.Column="8" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Vanadium" Click="clickOfAtom" FontFamily="Times New Roman">V</Button>
+            <Button Name="btnChromium" Grid.Column="10" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Chromium" Click="clickOfAtom" FontFamily="Times New Roman">Cr</Button>
+            <Button Name="btnManganese" Grid.Column="12" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Manganese" Click="clickOfAtom" FontFamily="Times New Roman">Mn</Button>
+            <Button Name="btnIron" Grid.Column="14" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Iron" Click="clickOfAtom" FontFamily="Times New Roman">Fe</Button>
+            <Button Name="btnCobalt" Grid.Column="16" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Cobalt" Click="clickOfAtom" FontFamily="Times New Roman">Co</Button>
+            <Button Name="btnNickel" Grid.Column="18" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Nickel" Click="clickOfAtom" FontFamily="Times New Roman">Ni</Button>
+            <Button Name="btnCopper" Grid.Column="20" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Copper" Click="clickOfAtom" FontFamily="Times New Roman">Cu</Button>
+            <Button Name="btnZinc" Grid.Column="22" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Zinc" Click="clickOfAtom" FontFamily="Times New Roman">Zn</Button>
+            <Button Name="btnGallium" Grid.Column="24" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Gallium" Click="clickOfAtom" FontFamily="Times New Roman">Ga</Button>
+            <Button Name="btnGermanium" Grid.Column="26" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Germanium" Click="clickOfAtom" FontFamily="Times New Roman">Ge</Button>
+            <Button Name="btnArsenic" Grid.Column="28" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Arsenic" Click="clickOfAtom" FontFamily="Times New Roman">As</Button>
+            <Button Name="btnSelenium" Grid.Column="30" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Selenium" Click="clickOfAtom" FontFamily="Times New Roman">Se</Button>
+            <Button Name="btnBromine" Grid.Column="32" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Bromine" Click="clickOfAtom" Style="{StaticResource HalogenButtonStyle}" FontFamily="Times New Roman">Br</Button>
+            <Button Name="btnKrypton" Grid.Column="34" Grid.Row="7" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Krypton" Click="clickOfAtom" Style="{StaticResource NobleGasButtonStyle}" FontFamily="Times New Roman">Kr</Button>
 
-            <Button Name="btnRubidium" Grid.Column="0" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Rubidium" Click="clickOfAtom">Rb</Button>
-            <Button Name="btnStrontium" Grid.Column="2" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Strontium" Click="clickOfAtom">Sr</Button>
-            <Button Name="btnYttrium" Grid.Column="4" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Yttrium" Click="clickOfAtom">Y</Button>
-            <Button Name="btnZirconium" Grid.Column="6" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Zirconium" Click="clickOfAtom">Zr</Button>
-            <Button Name="btnNiobium" Grid.Column="8" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Niobium" Click="clickOfAtom">Nb</Button>
-            <Button Name="btnMolybdenum" Grid.Column="10" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Molybdenum" Click="clickOfAtom">Mo</Button>
-            <Button Name="btnTechnetium" Grid.Column="12" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Technetium" Click="clickOfAtom">Tc</Button>
-            <Button Name="btnRuthenium" Grid.Column="14" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Ruthenium" Click="clickOfAtom">Ru</Button>
-            <Button Name="btnRhodium" Grid.Column="16" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Rhodium" Click="clickOfAtom">Rh</Button>
-            <Button Name="btnPalladium" Grid.Column="18" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Palladium" Click="clickOfAtom">Pd</Button>
-            <Button Name="btnSilver" Grid.Column="20" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Silver" Click="clickOfAtom">Ag</Button>
-            <Button Name="btnCadmium" Grid.Column="22" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Cadmium" Click="clickOfAtom">Cd</Button>
-            <Button Name="btnIndium" Grid.Column="24" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Indium" Click="clickOfAtom">In</Button>
-            <Button Name="btnTin" Grid.Column="26" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tin" Click="clickOfAtom">Sn</Button>
-            <Button Name="btnAntimony" Grid.Column="28" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Antimony" Click="clickOfAtom">Sb</Button>
-            <Button Name="btnTellurium" Grid.Column="30" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tellurium" Click="clickOfAtom">Te</Button>
-            <Button Name="btnIodine" Grid.Column="32" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Iodine" Click="clickOfAtom">I</Button>
-            <Button Name="btnXenon" Grid.Column="34" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Xenon" Click="clickOfAtom">Xe</Button>
+            <Button Name="btnRubidium" Grid.Column="0" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Rubidium" Click="clickOfAtom" Style="{StaticResource AlkaliMetalButtonStyle}" FontFamily="Times New Roman">Rb</Button>
+            <Button Name="btnStrontium" Grid.Column="2" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Strontium" Click="clickOfAtom" Style="{StaticResource AlkalineEarthMetalsButtonStyle}" FontFamily="Times New Roman">Sr</Button>
+            <Button Name="btnYttrium" Grid.Column="4" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Yttrium" Click="clickOfAtom" FontFamily="Times New Roman">Y</Button>
+            <Button Name="btnZirconium" Grid.Column="6" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Zirconium" Click="clickOfAtom" FontFamily="Times New Roman">Zr</Button>
+            <Button Name="btnNiobium" Grid.Column="8" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Niobium" Click="clickOfAtom" FontFamily="Times New Roman">Nb</Button>
+            <Button Name="btnMolybdenum" Grid.Column="10" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Molybdenum" Click="clickOfAtom" FontFamily="Times New Roman">Mo</Button>
+            <Button Name="btnTechnetium" Grid.Column="12" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Technetium" Click="clickOfAtom" FontFamily="Times New Roman">Tc</Button>
+            <Button Name="btnRuthenium" Grid.Column="14" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Ruthenium" Click="clickOfAtom" FontFamily="Times New Roman">Ru</Button>
+            <Button Name="btnRhodium" Grid.Column="16" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Rhodium" Click="clickOfAtom" FontFamily="Times New Roman">Rh</Button>
+            <Button Name="btnPalladium" Grid.Column="18" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Palladium" Click="clickOfAtom" FontFamily="Times New Roman">Pd</Button>
+            <Button Name="btnSilver" Grid.Column="20" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Silver" Click="clickOfAtom" FontFamily="Times New Roman">Ag</Button>
+            <Button Name="btnCadmium" Grid.Column="22" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Cadmium" Click="clickOfAtom" FontFamily="Times New Roman">Cd</Button>
+            <Button Name="btnIndium" Grid.Column="24" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Indium" Click="clickOfAtom" FontFamily="Times New Roman">In</Button>
+            <Button Name="btnTin" Grid.Column="26" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tin" Click="clickOfAtom" FontFamily="Times New Roman">Sn</Button>
+            <Button Name="btnAntimony" Grid.Column="28" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Antimony" Click="clickOfAtom" FontFamily="Times New Roman">Sb</Button>
+            <Button Name="btnTellurium" Grid.Column="30" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tellurium" Click="clickOfAtom" FontFamily="Times New Roman">Te</Button>
+            <Button Name="btnIodine" Grid.Column="32" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Iodine" Click="clickOfAtom" Style="{StaticResource HalogenButtonStyle}" FontFamily="Times New Roman">I</Button>
+            <Button Name="btnXenon" Grid.Column="34" Grid.Row="8" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Xenon" Click="clickOfAtom" Style="{StaticResource NobleGasButtonStyle}" FontFamily="Times New Roman">Xe</Button>
 
-            <Button Name="btnCaesium" Grid.Column="0" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Caesium" Click="clickOfAtom">Cs</Button>
-            <Button Name="btnBarium" Grid.Column="2" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Barium" Click="clickOfAtom">Ba</Button>
-            <Button Name="btnLanthanoid" Grid.Column="4" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lanthanoid" Click="btnLanthanoid_Click">*1</Button>
-            <Button Name="btnHafnium" Grid.Column="6" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hafnium" Click="clickOfAtom">Hf</Button>
-            <Button Name="btnTantalum" Grid.Column="8" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tantalum" Click="clickOfAtom">Ta</Button>
-            <Button Name="btnTungsten" Grid.Column="10" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tungsten" Click="clickOfAtom">W</Button>
-            <Button Name="btnRhenium" Grid.Column="12" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Rhenium" Click="clickOfAtom">Re</Button>
-            <Button Name="btnOsmium" Grid.Column="14" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Osmium" Click="clickOfAtom">Os</Button>
-            <Button Name="btnIridium" Grid.Column="16" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Iridium" Click="clickOfAtom">Ir</Button>
-            <Button Name="btnPlatinum" Grid.Column="18" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Platinum" Click="clickOfAtom">Pt</Button>
-            <Button Name="btnGold" Grid.Column="20" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Gold" Click="clickOfAtom">Au</Button>
-            <Button Name="btnMercury" Grid.Column="22" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Mercury" Click="clickOfAtom">Hg</Button>
-            <Button Name="btnThallium" Grid.Column="24" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Thallium" Click="clickOfAtom">Tl</Button>
-            <Button Name="btnLead" Grid.Column="26" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lead" Click="clickOfAtom">Pb</Button>
-            <Button Name="btnBismuth" Grid.Column="28" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Bismuth" Click="clickOfAtom">Bi</Button>
-            <Button Name="btnPolonium" Grid.Column="30" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Polonium" Click="clickOfAtom">Po</Button>
-            <Button Name="btnAstatine" Grid.Column="32" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Astatine" Click="clickOfAtom">At</Button>
-            <Button Name="btnRadon" Grid.Column="34" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Radon" Click="clickOfAtom">Rn</Button>
+            <Button Name="btnCaesium" Grid.Column="0" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Caesium" Click="clickOfAtom" Style="{StaticResource AlkaliMetalButtonStyle}" FontFamily="Times New Roman">Cs</Button>
+            <Button Name="btnBarium" Grid.Column="2" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Barium" Click="clickOfAtom" Style="{StaticResource AlkalineEarthMetalsButtonStyle}" FontFamily="Times New Roman">Ba</Button>
+            <Button Name="btnLanthanoid" Grid.Column="4" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lanthanoid" Click="btnLanthanoid_Click" FontFamily="Times New Roman">*1</Button>
+            <Button Name="btnHafnium" Grid.Column="6" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hafnium" Click="clickOfAtom" FontFamily="Times New Roman">Hf</Button>
+            <Button Name="btnTantalum" Grid.Column="8" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tantalum" Click="clickOfAtom" FontFamily="Times New Roman">Ta</Button>
+            <Button Name="btnTungsten" Grid.Column="10" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tungsten" Click="clickOfAtom" FontFamily="Times New Roman">W</Button>
+            <Button Name="btnRhenium" Grid.Column="12" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Rhenium" Click="clickOfAtom" FontFamily="Times New Roman">Re</Button>
+            <Button Name="btnOsmium" Grid.Column="14" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Osmium" Click="clickOfAtom" FontFamily="Times New Roman">Os</Button>
+            <Button Name="btnIridium" Grid.Column="16" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Iridium" Click="clickOfAtom" FontFamily="Times New Roman">Ir</Button>
+            <Button Name="btnPlatinum" Grid.Column="18" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Platinum" Click="clickOfAtom" FontFamily="Times New Roman">Pt</Button>
+            <Button Name="btnGold" Grid.Column="20" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Gold" Click="clickOfAtom" FontFamily="Times New Roman">Au</Button>
+            <Button Name="btnMercury" Grid.Column="22" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Mercury" Click="clickOfAtom" FontFamily="Times New Roman">Hg</Button>
+            <Button Name="btnThallium" Grid.Column="24" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Thallium" Click="clickOfAtom" FontFamily="Times New Roman">Tl</Button>
+            <Button Name="btnLead" Grid.Column="26" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lead" Click="clickOfAtom" FontFamily="Times New Roman">Pb</Button>
+            <Button Name="btnBismuth" Grid.Column="28" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Bismuth" Click="clickOfAtom" FontFamily="Times New Roman">Bi</Button>
+            <Button Name="btnPolonium" Grid.Column="30" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Polonium" Click="clickOfAtom" FontFamily="Times New Roman">Po</Button>
+            <Button Name="btnAstatine" Grid.Column="32" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Astatine" Click="clickOfAtom" Style="{StaticResource HalogenButtonStyle}" FontFamily="Times New Roman">At</Button>
+            <Button Name="btnRadon" Grid.Column="34" Grid.Row="9" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Radon" Click="clickOfAtom" Style="{StaticResource NobleGasButtonStyle}" FontFamily="Times New Roman">Rn</Button>
 
-            <Button Name="btnFrancium" Grid.Column="0" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Francium" Click="clickOfAtom">Fr</Button>
-            <Button Name="btnRadium" Grid.Column="2" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Radium" Click="clickOfAtom">Ra</Button>
-            <Button Name="btnActinoid" Grid.Column="4" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Actinoid" Click="btnActinoid_Click">*2</Button>
-            <Button Name="btnRutherfordium" Grid.Column="6" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Rutherfordium" Click="clickOfAtom">Rf</Button>
-            <Button Name="btnDubnium" Grid.Column="8" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Dubnium" Click="clickOfAtom">Db</Button>
-            <Button Name="btnSeaborgium" Grid.Column="10" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Seaborgium" Click="clickOfAtom">Sg</Button>
-            <Button Name="btnBohrium" Grid.Column="12" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Bohrium" Click="clickOfAtom">Bh</Button>
-            <Button Name="btnHassium" Grid.Column="14" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hassium" Click="clickOfAtom">Hs</Button>
-            <Button Name="btnMeitnerium" Grid.Column="16" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Meitnerium" Click="clickOfAtom">Mt</Button>
-            <Button Name="btnDarmstadtium" Grid.Column="18" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Darmstadtium" Click="clickOfAtom">Ds</Button>
-            <Button Name="btnRoentgenium" Grid.Column="20" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Roentgenium" Click="clickOfAtom">Rg</Button>
-            <Button Name="btnCopernicium" Grid.Column="22" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Copernicium" Click="clickOfAtom">Cn</Button>
-            <Button Name="btnNihonium" Grid.Column="24" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Nihonium" Click="clickOfAtom">Nh</Button>
-            <Button Name="btnFlerovium" Grid.Column="26" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Flerovium" Click="clickOfAtom">Fl</Button>
-            <Button Name="btnMoscovium" Grid.Column="28" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Moscovium" Click="clickOfAtom">Mc</Button>
-            <Button Name="btnLivermorium" Grid.Column="30" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Livermorium" Click="clickOfAtom">Lv</Button>
-            <Button Name="btnTennessine" Grid.Column="32" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tennessine" Click="clickOfAtom">Ts</Button>
-            <Button Name="btnOganesson" Grid.Column="34" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Oganesson" Click="clickOfAtom">Og</Button>
+            <Button Name="btnFrancium" Grid.Column="0" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Francium" Click="clickOfAtom" Style="{StaticResource AlkaliMetalButtonStyle}" FontFamily="Times New Roman">Fr</Button>
+            <Button Name="btnRadium" Grid.Column="2" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Radium" Click="clickOfAtom" Style="{StaticResource AlkalineEarthMetalsButtonStyle}" FontFamily="Times New Roman">Ra</Button>
+            <Button Name="btnActinoid" Grid.Column="4" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Actinoid" Click="btnActinoid_Click" FontFamily="Times New Roman">*2</Button>
+            <Button Name="btnRutherfordium" Grid.Column="6" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Rutherfordium" Click="clickOfAtom" FontFamily="Times New Roman">Rf</Button>
+            <Button Name="btnDubnium" Grid.Column="8" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Dubnium" Click="clickOfAtom" FontFamily="Times New Roman">Db</Button>
+            <Button Name="btnSeaborgium" Grid.Column="10" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Seaborgium" Click="clickOfAtom" FontFamily="Times New Roman">Sg</Button>
+            <Button Name="btnBohrium" Grid.Column="12" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Bohrium" Click="clickOfAtom" FontFamily="Times New Roman">Bh</Button>
+            <Button Name="btnHassium" Grid.Column="14" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Hassium" Click="clickOfAtom" FontFamily="Times New Roman">Hs</Button>
+            <Button Name="btnMeitnerium" Grid.Column="16" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Meitnerium" Click="clickOfAtom" FontFamily="Times New Roman">Mt</Button>
+            <Button Name="btnDarmstadtium" Grid.Column="18" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Darmstadtium" Click="clickOfAtom" FontFamily="Times New Roman">Ds</Button>
+            <Button Name="btnRoentgenium" Grid.Column="20" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Roentgenium" Click="clickOfAtom" FontFamily="Times New Roman">Rg</Button>
+            <Button Name="btnCopernicium" Grid.Column="22" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Copernicium" Click="clickOfAtom" FontFamily="Times New Roman">Cn</Button>
+            <Button Name="btnNihonium" Grid.Column="24" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Nihonium" Click="clickOfAtom" FontFamily="Times New Roman">Nh</Button>
+            <Button Name="btnFlerovium" Grid.Column="26" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Flerovium" Click="clickOfAtom" FontFamily="Times New Roman">Fl</Button>
+            <Button Name="btnMoscovium" Grid.Column="28" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Moscovium" Click="clickOfAtom" FontFamily="Times New Roman">Mc</Button>
+            <Button Name="btnLivermorium" Grid.Column="30" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Livermorium" Click="clickOfAtom" FontFamily="Times New Roman">Lv</Button>
+            <Button Name="btnTennessine" Grid.Column="32" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Tennessine" Click="clickOfAtom" Style="{StaticResource HalogenButtonStyle}" FontFamily="Times New Roman">Ts</Button>
+            <Button Name="btnOganesson" Grid.Column="34" Grid.Row="10" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Oganesson" Click="clickOfAtom" Style="{StaticResource NobleGasButtonStyle}" FontFamily="Times New Roman">Og</Button>
 
-            <Label Name="LanthanoidLabel" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Lanthanoid</Label>
-            <Label Name="ActinoidLabel" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Actinoid</Label>
+            <Label Name="LanthanoidLabel" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman">Lanthanoid</Label>
+            <Label Name="ActinoidLabel" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Times New Roman">Actinoid</Label>
 
             <!-- Lanthanoid -->
-            <Button Name="btnLanthanum" Grid.Column="6" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lanthanum" Click="clickOfAtom">La</Button>
-            <Button Name="btnCerium" Grid.Column="8" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Cerium" Click="clickOfAtom">Ce</Button>
-            <Button Name="btnPraseodymium" Grid.Column="10" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Praseodymium" Click="clickOfAtom">Pr</Button>
-            <Button Name="btnNeodymium" Grid.Column="12" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Neodymium" Click="clickOfAtom">Nd</Button>
-            <Button Name="btnPromethium" Grid.Column="14" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Promethium" Click="clickOfAtom">Pm</Button>
-            <Button Name="btnSamarium" Grid.Column="16" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Samarium" Click="clickOfAtom">Sm</Button>
-            <Button Name="btnEuropium" Grid.Column="18" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Europium" Click="clickOfAtom">Eu</Button>
-            <Button Name="btnGadolinium" Grid.Column="20" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Gadolinium" Click="clickOfAtom">Gd</Button>
-            <Button Name="btnTerbium" Grid.Column="22" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Terbium" Click="clickOfAtom">Tb</Button>
-            <Button Name="btnDysprosium" Grid.Column="24" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Dysprosium" Click="clickOfAtom">Dy</Button>
-            <Button Name="btnHolmium" Grid.Column="26" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Holmium" Click="clickOfAtom">Ho</Button>
-            <Button Name="btnErbium" Grid.Column="28" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Erbium" Click="clickOfAtom">Er</Button>
-            <Button Name="btnThulium" Grid.Column="30" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Thulium" Click="clickOfAtom">Tm</Button>
-            <Button Name="btnYtterbium" Grid.Column="32" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Ytterbium" Click="clickOfAtom">Yb</Button>
-            <Button Name="btnLutetium" Grid.Column="34" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lutetium" Click="clickOfAtom">Lu</Button>
+            <Button Name="btnLanthanum" Grid.Column="6" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lanthanum" Click="clickOfAtom" FontFamily="Times New Roman">La</Button>
+            <Button Name="btnCerium" Grid.Column="8" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Cerium" Click="clickOfAtom" FontFamily="Times New Roman">Ce</Button>
+            <Button Name="btnPraseodymium" Grid.Column="10" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Praseodymium" Click="clickOfAtom" FontFamily="Times New Roman">Pr</Button>
+            <Button Name="btnNeodymium" Grid.Column="12" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Neodymium" Click="clickOfAtom" FontFamily="Times New Roman">Nd</Button>
+            <Button Name="btnPromethium" Grid.Column="14" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Promethium" Click="clickOfAtom" FontFamily="Times New Roman">Pm</Button>
+            <Button Name="btnSamarium" Grid.Column="16" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Samarium" Click="clickOfAtom" FontFamily="Times New Roman">Sm</Button>
+            <Button Name="btnEuropium" Grid.Column="18" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Europium" Click="clickOfAtom" FontFamily="Times New Roman">Eu</Button>
+            <Button Name="btnGadolinium" Grid.Column="20" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Gadolinium" Click="clickOfAtom" FontFamily="Times New Roman">Gd</Button>
+            <Button Name="btnTerbium" Grid.Column="22" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Terbium" Click="clickOfAtom" FontFamily="Times New Roman">Tb</Button>
+            <Button Name="btnDysprosium" Grid.Column="24" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Dysprosium" Click="clickOfAtom" FontFamily="Times New Roman">Dy</Button>
+            <Button Name="btnHolmium" Grid.Column="26" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Holmium" Click="clickOfAtom" FontFamily="Times New Roman">Ho</Button>
+            <Button Name="btnErbium" Grid.Column="28" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Erbium" Click="clickOfAtom" FontFamily="Times New Roman">Er</Button>
+            <Button Name="btnThulium" Grid.Column="30" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Thulium" Click="clickOfAtom" FontFamily="Times New Roman">Tm</Button>
+            <Button Name="btnYtterbium" Grid.Column="32" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Ytterbium" Click="clickOfAtom" FontFamily="Times New Roman">Yb</Button>
+            <Button Name="btnLutetium" Grid.Column="34" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lutetium" Click="clickOfAtom" FontFamily="Times New Roman">Lu</Button>
 
             <!-- Actinoid -->
-            <Button Name="btnActinium" Grid.Column="6" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Actinium" Click="clickOfAtom">Ac</Button>
-            <Button Name="btnThorium" Grid.Column="8" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Thorium" Click="clickOfAtom">Th</Button>
-            <Button Name="btnProtactinium" Grid.Column="10" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Protactinium" Click="clickOfAtom">Pa</Button>
-            <Button Name="btnUranium" Grid.Column="12" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Uranium" Click="clickOfAtom">U</Button>
-            <Button Name="btnNeptunium" Grid.Column="14" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Neptunium" Click="clickOfAtom">Np</Button>
-            <Button Name="btnPlutonium" Grid.Column="16" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Plutonium" Click="clickOfAtom">Pu</Button>
-            <Button Name="btnAmericium" Grid.Column="18" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Americium" Click="clickOfAtom">Am</Button>
-            <Button Name="btnCurium" Grid.Column="20" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Curium" Click="clickOfAtom">Cm</Button>
-            <Button Name="btnBerkelium" Grid.Column="22" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Berkelium" Click="clickOfAtom">Bk</Button>
-            <Button Name="btnCalifornium" Grid.Column="24" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Californium" Click="clickOfAtom">Cf</Button>
-            <Button Name="btnEinsteinium" Grid.Column="26" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Einsteinium" Click="clickOfAtom">Es</Button>
-            <Button Name="btnFermium" Grid.Column="28" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Fermium" Click="clickOfAtom">Fm</Button>
-            <Button Name="btnMendelevium" Grid.Column="30" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Mendelevium" Click="clickOfAtom">Md</Button>
-            <Button Name="btnNobelium" Grid.Column="32" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Nobelium" Click="clickOfAtom">No</Button>
-            <Button Name="btnLawrencium" Grid.Column="34" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lawrencium" Click="clickOfAtom">Lr</Button>
+            <Button Name="btnActinium" Grid.Column="6" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Actinium" Click="clickOfAtom" FontFamily="Times New Roman">Ac</Button>
+            <Button Name="btnThorium" Grid.Column="8" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Thorium" Click="clickOfAtom" FontFamily="Times New Roman">Th</Button>
+            <Button Name="btnProtactinium" Grid.Column="10" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Protactinium" Click="clickOfAtom" FontFamily="Times New Roman">Pa</Button>
+            <Button Name="btnUranium" Grid.Column="12" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Uranium" Click="clickOfAtom" FontFamily="Times New Roman">U</Button>
+            <Button Name="btnNeptunium" Grid.Column="14" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Neptunium" Click="clickOfAtom" FontFamily="Times New Roman">Np</Button>
+            <Button Name="btnPlutonium" Grid.Column="16" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Plutonium" Click="clickOfAtom" FontFamily="Times New Roman">Pu</Button>
+            <Button Name="btnAmericium" Grid.Column="18" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Americium" Click="clickOfAtom" FontFamily="Times New Roman">Am</Button>
+            <Button Name="btnCurium" Grid.Column="20" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Curium" Click="clickOfAtom" FontFamily="Times New Roman">Cm</Button>
+            <Button Name="btnBerkelium" Grid.Column="22" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Berkelium" Click="clickOfAtom" FontFamily="Times New Roman">Bk</Button>
+            <Button Name="btnCalifornium" Grid.Column="24" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Californium" Click="clickOfAtom" FontFamily="Times New Roman">Cf</Button>
+            <Button Name="btnEinsteinium" Grid.Column="26" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Einsteinium" Click="clickOfAtom" FontFamily="Times New Roman">Es</Button>
+            <Button Name="btnFermium" Grid.Column="28" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Fermium" Click="clickOfAtom" FontFamily="Times New Roman">Fm</Button>
+            <Button Name="btnMendelevium" Grid.Column="30" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Mendelevium" Click="clickOfAtom" FontFamily="Times New Roman">Md</Button>
+            <Button Name="btnNobelium" Grid.Column="32" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Nobelium" Click="clickOfAtom" FontFamily="Times New Roman">No</Button>
+            <Button Name="btnLawrencium" Grid.Column="34" Grid.Row="11" Width="30" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Lawrencium" Click="clickOfAtom" FontFamily="Times New Roman">Lr</Button>
 
         </Grid>
 
         <!-- 計算履歴グリッド -->
-        <Grid  Name="historyGrid" Grid.Row="0" Grid.Column="2" >
+        <Grid  Name="historyGrid" Grid.Row="0" Grid.Column="2" Visibility="Hidden">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -398,7 +425,7 @@
             <!-- 計算履歴表示用グリッド -->
             <DataGrid Name="calculationHistoryGrid" Grid.Column="0" Grid.Row="1" Height="700" Width="600" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding Result}" MouseDoubleClick="calculationHistoryGrid_MouseDoubleClick" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="formula" Width="500" Binding="{Binding formula}">
+                    <DataGridTextColumn Header="formula" Width="500" Binding="{Binding formula}"  FontFamily="Times New Roman">
                         <DataGridTextColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="Width" Value="500"/>
@@ -406,7 +433,7 @@
                             </Style>
                         </DataGridTextColumn.HeaderStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="answer" Width="100" Binding="{Binding result}">
+                    <DataGridTextColumn Header="answer" Width="100" Binding="{Binding result}"  FontFamily="Times New Roman">
                         <DataGridTextColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="Width" Value="100"/>

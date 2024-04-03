@@ -405,6 +405,32 @@ namespace easyCalc
                     }
                 }
 
+                // 常用対数の値をC#で使用できるものに置換
+                if (formulaString.Contains("log10"))
+                {
+                    // 正規表現で常用対数の値を取得する
+                    var pattern1 = @"log10\(.*\)";
+
+                    var commonLogarithms = Regex.Matches(formulaString, pattern1);
+
+                    for (var i = 0; i <= commonLogarithms.Count -1; i++)
+                    {
+                        string matchesString = commonLogarithms[i].Value;
+
+                        // かっこの中の値を取得する
+                        // 正規表現でかっこの中の値をマッチ
+                        // まずはかっこの始端から終端までを取得
+                        var parenthesesPattern = @"\(.*?\)";
+
+                        // 正規表現を用いて、検索対象の文字列の真数を検索する
+                        var trueNumber = Regex.Match(matchesString, parenthesesPattern);
+
+                        // 上記処理で取得した真数をC#の常用対数関数に渡して計算を行う。
+                        double newCommonLogarithm = Math.Log10(double.Parse(trueNumber.Value));
+
+                    }
+                }
+
                 // 置換処理を経た計算式はすべて文字列となってしまうため、DataTable内で計算させて返す
                 System.Data.DataTable dt = new System.Data.DataTable();
                 string s = dt.Compute(formulaString, "").ToString();
