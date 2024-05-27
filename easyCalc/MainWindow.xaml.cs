@@ -1007,7 +1007,6 @@ namespace easyCalc
         {
             var buttonStyleScreen = new buttonStyle.buttonStyle(this);
             buttonStyleScreen.Show();
-            this.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
@@ -1015,9 +1014,10 @@ namespace easyCalc
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void language_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("test");
+            var languageScreen = new language.language(this);
+            languageScreen.Show();
         }
 
 

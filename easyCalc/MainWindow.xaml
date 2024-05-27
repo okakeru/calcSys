@@ -104,7 +104,7 @@
                     <MenuItem Header="save"/>
                 </MenuItem>
                 <MenuItem Header="buttonStyle" Click="buttonStyle_Click"/>
-                <MenuItem Header="language" Click="MenuItem_Click"/>
+                <MenuItem Header="language" Click="language_Click"/>
             </Menu>
         </DockPanel>
 
