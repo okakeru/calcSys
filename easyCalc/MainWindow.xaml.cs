@@ -1009,18 +1009,18 @@ namespace easyCalc
             buttonStyleScreen.Show();
             this.Visibility = Visibility.Hidden;
         }
-        
+
         /// <summary>
         /// 画面上の言語編集画面オープン
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void language_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var languageScreen = new language.language(this);
-            languageScreen.Show();
-            this.Visibility = Visibility.Hidden;
+            MessageBox.Show("test");
         }
+
+
 
     }
 }

@@ -73,11 +73,13 @@
         <!-- ハロゲンボタン色定義 -->
         <Style x:Key="HalogenButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Orange"/>
+            <Setter Property="Foreground" Value="LightYellow"/>
         </Style>
 
         <!-- 希ガスボタン色定義 -->
         <Style x:Key="NobleGasButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="OrangeRed"/>
+            <Setter Property="Foreground" Value="LightYellow"/>
         </Style>
 
         <!-- それ以外のボタン色定義 -->
@@ -95,16 +97,16 @@
             <ColumnDefinition Name="periodicTableColumn" Width="625"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.ColumnSpan="2">
+        <DockPanel Grid.ColumnSpan="2">
             <Menu FontFamily="Times New Roman">
                 <MenuItem Header="file">
                     <MenuItem Header="open"/>
                     <MenuItem Header="save"/>
                 </MenuItem>
                 <MenuItem Header="buttonStyle" Click="buttonStyle_Click"/>
-                <MenuItem Header="language" Click="language_Click"/>
+                <MenuItem Header="language" Click="MenuItem_Click"/>
             </Menu>
-        </StackPanel>
+        </DockPanel>
 
         <!-- 画面拡大縮小ボタン -->
         <Grid Name="spreadWindow" Grid.Row="0" Grid.Column="1">
@@ -131,7 +133,7 @@
             </Grid.RowDefinitions>
             
             <!-- 計算式テキストボックス -->
-            <Label Grid.Row="0" Height="50" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontFamily="Times New Roman">Formula</Label>
+            <Label Grid.Row="0" Height="20" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontFamily="Times New Roman">Formula</Label>
             <TextBox Grid.Row="1" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 計算結果テキストボックス -->
