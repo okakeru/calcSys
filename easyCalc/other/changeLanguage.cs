@@ -39,5 +39,41 @@ namespace easyCalc.other
             return retLanguage;
 
         }
+
+        /// <summary>
+        /// 言語選択後にMainWindowを開いた際の言語変換
+        /// </summary>
+        public void ChangeLanguage(MainWindow mainWindow)
+        {
+            // 今の言語を取得する
+            string language = GetLanguage();
+
+            if (language == "japanese")
+            {
+                mainWindow.fileMenu.Header = "ファイル";
+                mainWindow.fileOpen.Header = "ファイルを開く";
+                mainWindow.fileSave.Header = "ファイルを保存";
+
+                mainWindow.buttonStyleMenu.Header = "ボタンスタイル";
+
+                mainWindow.languageMenu.Header = "言語選択";
+
+                mainWindow.formula.Content = "計算式";
+                mainWindow.result.Content = "解";
+            }
+            else if (language == "english")
+            {
+                mainWindow.fileMenu.Header = "file";
+                mainWindow.fileOpen.Header = "open";
+                mainWindow.fileSave.Header = "save";
+
+                mainWindow.buttonStyleMenu.Header = "buttonStyle";
+
+                mainWindow.languageMenu.Header = "language";
+
+                mainWindow.formula.Content = "formula";
+                mainWindow.result.Content = "result";
+            }
+        }
     }
 }

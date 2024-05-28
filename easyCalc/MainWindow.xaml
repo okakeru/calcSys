@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:easyCalc"
         mc:Ignorable="d"
         Title="Windows版関数電卓" Height="800" Width="1150"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        IsVisibleChanged="Window_IsVisibleChanged">
+    
     <Window.DataContext>
         <local:MainWindowData/>
     </Window.DataContext>
@@ -99,12 +101,12 @@
 
         <DockPanel Grid.ColumnSpan="2">
             <Menu FontFamily="Times New Roman">
-                <MenuItem Header="file">
-                    <MenuItem Header="open"/>
-                    <MenuItem Header="save"/>
+                <MenuItem Name="fileMenu" Header="file">
+                    <MenuItem Name="fileOpen" Header="open"/>
+                    <MenuItem Name="fileSave" Header="save"/>
                 </MenuItem>
-                <MenuItem Header="buttonStyle" Click="buttonStyle_Click"/>
-                <MenuItem Header="language" Click="language_Click"/>
+                <MenuItem Name="buttonStyleMenu" Header="buttonStyle" Click="buttonStyle_Click"/>
+                <MenuItem Name="languageMenu" Header="language" Click="language_Click"/>
             </Menu>
         </DockPanel>
 
@@ -133,11 +135,11 @@
             </Grid.RowDefinitions>
             
             <!-- 計算式テキストボックス -->
-            <Label Grid.Row="0" Height="20" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontFamily="Times New Roman">Formula</Label>
+            <Label Name="formula" Grid.Row="0" Height="30" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontFamily="Times New Roman">Formula</Label>
             <TextBox Grid.Row="1" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 計算結果テキストボックス -->
-            <Label Grid.Row="2" Height="50" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" FontFamily="Times New Roman">Solution</Label>
+            <Label Name="result" Grid.Row="2" Height="30" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontFamily="Times New Roman">Solution</Label>
             <TextBox Grid.Row="3" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 入力ボタン部 -->

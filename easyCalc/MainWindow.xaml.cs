@@ -19,6 +19,8 @@ using System.Data;
 using System.Collections.ObjectModel;
 using static System.Net.Mime.MediaTypeNames;
 using easyCalc.language;
+using System.ComponentModel;
+using easyCalc.other;
 
 namespace easyCalc
 {
@@ -72,14 +74,6 @@ namespace easyCalc
             btnMendelevium.Visibility = Visibility.Hidden;
             btnNobelium.Visibility = Visibility.Hidden;
             btnLawrencium.Visibility = Visibility.Hidden;
-
-        }
-
-        /// <summary>
-        /// 言語切替設定時の処理
-        /// </summary>
-        private void changeLanguage()
-        {
 
         }
 
@@ -1023,11 +1017,23 @@ namespace easyCalc
         /// <param name="e"></param>
         private void language_Click(object sender, RoutedEventArgs e)
         {
-            var languageScreen = new language.language(this);
+            // 言語選択画面のインスタンスを作成
+            language.language languageScreen = new language.language(this);
+
             languageScreen.Show();
         }
 
+        /// <summary>
+        /// 言語選択時のイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            changeLanguage changeLanguage = new changeLanguage();
+            string nowLanguage = changeLanguage.GetLanguage();
 
-
+            changeLanguage.ChangeLanguage(this);
+        }
     }
 }
