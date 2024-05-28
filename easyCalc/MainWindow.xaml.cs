@@ -73,7 +73,14 @@ namespace easyCalc
             btnNobelium.Visibility = Visibility.Hidden;
             btnLawrencium.Visibility = Visibility.Hidden;
 
-            
+        }
+
+        /// <summary>
+        /// 言語切替設定時の処理
+        /// </summary>
+        private void changeLanguage()
+        {
+
         }
 
         /// <summary>

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
+using easyCalc.other;
 
 namespace easyCalc.language
 {
@@ -29,33 +30,30 @@ namespace easyCalc.language
             InitializeComponent();
             this.mainWindow = mainWindow;
 
-            // アクセスするsqliteを指定
-            var connectionString = "Data Source=calc.sqlite3";
+            string selectedLanguage = "";
 
-            using (var conn = new SQLiteConnection(connectionString))
+            changeLanguage changeLanguage = new changeLanguage();
+
+            selectedLanguage = changeLanguage.GetLanguage();
+
+            if (selectedLanguage == "japanese")
             {
-                conn.Open();
+                selectLanguage.SelectedIndex = 0;
 
-                var sql = "select setting_value from m_setting where setting_name = 'language'";
-
-                SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-                SQLiteDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    string selectedLanguage = (string)reader["setting_value"];
-
-                    if (selectedLanguage == "japanese")
-                    {
-                        selectLanguage.SelectedIndex = 0;
-                    }
-                    else
-                    {
-                        selectLanguage.SelectedIndex = 1;
-                    }
-                }
-
+                Title = "言語切替";
+                mainText.Content = "言語を選んでください。";
+                select.Content = "選択";
             }
+            else
+            {
+                selectLanguage.SelectedIndex = 1;
+
+                Title = "language";
+                mainText.Content = "Please select a language.";
+                select.Content = "decision";
+            }
+
+            mainWindow.Visibility = Visibility.Hidden;
 
         }
 
@@ -119,14 +117,30 @@ namespace easyCalc.language
             if (selectLanguage.SelectedIndex == 0)
             {
                 MessageBox.Show("言語を日本語に切り替えました。");
+
+                // コントロールに記載されている文字列を書き換え
+                Title = "言語切替";
+                mainText.Content = "言語を選んでください。";
+                select.Content = "選択";
+
             }
             else if (selectLanguage.SelectedIndex == 1)
             {
                 MessageBox.Show("The language has been switched to English.");
-            }
 
+                // コントロールに記載されている文字列を書き換え
+                Title = "language";
+                mainText.Content = "Please select a language.";
+                select.Content = "decision";
+
+            }
         }
 
+        /// <summary>
+        /// 画面を閉じる際の処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             mainWindow.Visibility = Visibility.Visible;

@@ -13,7 +13,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Selected Language"/>
+        <Label Name="mainText" Grid.Row="0" Content="Selected Language"/>
         <ComboBox Grid.Row="1" Name="selectLanguage" Width="200" Height="20">
             <ComboBoxItem Content="日本語(japanese)"/>
             <ComboBoxItem Content="英語(english)"/>
