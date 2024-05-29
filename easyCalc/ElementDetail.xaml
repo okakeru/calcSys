@@ -1,0 +1,31 @@
+﻿<Window x:Class="easyCalc.ElementDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:easyCalc"
+        mc:Ignorable="d"
+        Title="元素詳細データ" Height="350" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0">原子番号</Label>
+        <TextBox Grid.Row="1" Name="atomicNumber" IsReadOnly="True" Height="40" Width="250" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18"/>
+        <Label Grid.Row="2">元素記号</Label>
+        <TextBox Grid.Row="3" Name="atomicSymbol" IsReadOnly="True" Height="40" Width="250" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18"/>
+        <Label Grid.Row="4">元素名</Label>
+        <TextBox Grid.Row="5" Name="atomicName" IsReadOnly="True" Height="40" Width="250" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18"/>
+        <Label Grid.Row="6">原子量</Label>
+        <TextBox Grid.Row="7" Name="RelativeAtomicMass" IsReadOnly="True" Height="40" Width="250" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18"/>
+
+    </Grid>
+</Window>

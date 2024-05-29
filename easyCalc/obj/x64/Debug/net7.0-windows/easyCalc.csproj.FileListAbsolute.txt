@@ -55,3 +55,5 @@ C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\eas
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\language\language.baml
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\buttonStyle\buttonStyle.g.cs
 C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\buttonStyle\buttonStyle.baml
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\ElementDetail.g.cs
+C:\00_MyCompany\自社開発システム\関数電卓システム\001_Source\easyCalc\obj\x64\Debug\net7.0-windows\ElementDetail.baml

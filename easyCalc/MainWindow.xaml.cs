@@ -42,6 +42,10 @@ namespace easyCalc
             ActinoidLabel.Visibility = Visibility.Hidden;
             LanthanoidLabel.Visibility = Visibility.Visible;
 
+            // ランタノイド系のボタンを非活性にする（誤押下を防ぐため）
+            btnLanthanoid.IsEnabled = false;
+            btnActinoid.IsEnabled = true;
+
             // 周期表のアクチノイドとランタノイドの表示非表示を設定
             btnLanthanum.Visibility = Visibility.Visible;
             btnCerium.Visibility = Visibility.Visible;
@@ -577,49 +581,44 @@ namespace easyCalc
         /// <param name="e"></param>
         private void btnLanthanoid_Click(object sender, RoutedEventArgs e)
         {
-            // アクチノイド系が表示状態であれば非表示にする
-            if (ActinoidLabel.IsVisible)
-            {
-                ActinoidLabel.Visibility = Visibility.Hidden;
-                LanthanoidLabel.Visibility = Visibility.Visible;
+            ActinoidLabel.Visibility = Visibility.Hidden;
+            LanthanoidLabel.Visibility = Visibility.Visible;
 
-                btnLanthanum.Visibility = Visibility.Visible;
-                btnCerium.Visibility = Visibility.Visible;
-                btnPraseodymium.Visibility = Visibility.Visible;
-                btnNeodymium.Visibility = Visibility.Visible;
-                btnPromethium.Visibility = Visibility.Visible;
-                btnSamarium.Visibility = Visibility.Visible;
-                btnEuropium.Visibility = Visibility.Visible;
-                btnGadolinium.Visibility = Visibility.Visible;
-                btnTerbium.Visibility = Visibility.Visible;
-                btnDysprosium.Visibility = Visibility.Visible;
-                btnHolmium.Visibility = Visibility.Visible;
-                btnErbium.Visibility = Visibility.Visible;
-                btnThulium.Visibility = Visibility.Visible;
-                btnYtterbium.Visibility = Visibility.Visible;
-                btnLutetium.Visibility = Visibility.Visible;
+            // ランタノイド系のボタンを非活性にする（誤押下を防ぐため）
+            btnLanthanoid.IsEnabled = false;
+            btnActinoid.IsEnabled = true;
 
-                btnActinium.Visibility = Visibility.Hidden;
-                btnThorium.Visibility = Visibility.Hidden;
-                btnProtactinium.Visibility = Visibility.Hidden;
-                btnUranium.Visibility = Visibility.Hidden;
-                btnNeptunium.Visibility = Visibility.Hidden;
-                btnPlutonium.Visibility = Visibility.Hidden;
-                btnAmericium.Visibility = Visibility.Hidden;
-                btnCurium.Visibility = Visibility.Hidden;
-                btnBerkelium.Visibility = Visibility.Hidden;
-                btnCalifornium.Visibility = Visibility.Hidden;
-                btnEinsteinium.Visibility = Visibility.Hidden;
-                btnFermium.Visibility = Visibility.Hidden;
-                btnMendelevium.Visibility = Visibility.Hidden;
-                btnNobelium.Visibility = Visibility.Hidden;
-                btnLawrencium.Visibility = Visibility.Hidden;
+            btnLanthanum.Visibility = Visibility.Visible;
+            btnCerium.Visibility = Visibility.Visible;
+            btnPraseodymium.Visibility = Visibility.Visible;
+            btnNeodymium.Visibility = Visibility.Visible;
+            btnPromethium.Visibility = Visibility.Visible;
+            btnSamarium.Visibility = Visibility.Visible;
+            btnEuropium.Visibility = Visibility.Visible;
+            btnGadolinium.Visibility = Visibility.Visible;
+            btnTerbium.Visibility = Visibility.Visible;
+            btnDysprosium.Visibility = Visibility.Visible;
+            btnHolmium.Visibility = Visibility.Visible;
+            btnErbium.Visibility = Visibility.Visible;
+            btnThulium.Visibility = Visibility.Visible;
+            btnYtterbium.Visibility = Visibility.Visible;
+            btnLutetium.Visibility = Visibility.Visible;
 
-            }
-            else
-            {
-                MessageBox.Show("Lanthanoids are already shown.");
-            }
+            btnActinium.Visibility = Visibility.Hidden;
+            btnThorium.Visibility = Visibility.Hidden;
+            btnProtactinium.Visibility = Visibility.Hidden;
+            btnUranium.Visibility = Visibility.Hidden;
+            btnNeptunium.Visibility = Visibility.Hidden;
+            btnPlutonium.Visibility = Visibility.Hidden;
+            btnAmericium.Visibility = Visibility.Hidden;
+            btnCurium.Visibility = Visibility.Hidden;
+            btnBerkelium.Visibility = Visibility.Hidden;
+            btnCalifornium.Visibility = Visibility.Hidden;
+            btnEinsteinium.Visibility = Visibility.Hidden;
+            btnFermium.Visibility = Visibility.Hidden;
+            btnMendelevium.Visibility = Visibility.Hidden;
+            btnNobelium.Visibility = Visibility.Hidden;
+            btnLawrencium.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
@@ -629,48 +628,44 @@ namespace easyCalc
         /// <param name="e"></param>
         private void btnActinoid_Click(object sender, RoutedEventArgs e)
         {
-            // ランタノイド系が表示状態であれば非表示にする
-            if (LanthanoidLabel.IsVisible)
-            {
-                LanthanoidLabel.Visibility = Visibility.Hidden;
-                ActinoidLabel.Visibility = Visibility.Visible;
+            LanthanoidLabel.Visibility = Visibility.Hidden;
+            ActinoidLabel.Visibility = Visibility.Visible;
 
-                btnLanthanum.Visibility = Visibility.Hidden;
-                btnCerium.Visibility = Visibility.Hidden;
-                btnPraseodymium.Visibility = Visibility.Hidden;
-                btnNeodymium.Visibility = Visibility.Hidden;
-                btnPromethium.Visibility = Visibility.Hidden;
-                btnSamarium.Visibility = Visibility.Hidden;
-                btnEuropium.Visibility = Visibility.Hidden;
-                btnGadolinium.Visibility = Visibility.Hidden;
-                btnTerbium.Visibility = Visibility.Hidden;
-                btnDysprosium.Visibility = Visibility.Hidden;
-                btnHolmium.Visibility = Visibility.Hidden;
-                btnErbium.Visibility = Visibility.Hidden;
-                btnThulium.Visibility = Visibility.Hidden;
-                btnYtterbium.Visibility = Visibility.Hidden;
-                btnLutetium.Visibility = Visibility.Hidden;
+            // アクチノイド系のボタンを非活性にする（誤押下を防ぐため）
+            btnLanthanoid.IsEnabled = true;
+            btnActinoid.IsEnabled = false;
 
-                btnActinium.Visibility = Visibility.Visible;
-                btnThorium.Visibility = Visibility.Visible;
-                btnProtactinium.Visibility = Visibility.Visible;
-                btnUranium.Visibility = Visibility.Visible;
-                btnNeptunium.Visibility = Visibility.Visible;
-                btnPlutonium.Visibility = Visibility.Visible;
-                btnAmericium.Visibility = Visibility.Visible;
-                btnCurium.Visibility = Visibility.Visible;
-                btnBerkelium.Visibility = Visibility.Visible;
-                btnCalifornium.Visibility = Visibility.Visible;
-                btnEinsteinium.Visibility = Visibility.Visible;
-                btnFermium.Visibility = Visibility.Visible;
-                btnMendelevium.Visibility = Visibility.Visible;
-                btnNobelium.Visibility = Visibility.Visible;
-                btnLawrencium.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                MessageBox.Show("Actinoids are already shown.");
-            }
+            btnLanthanum.Visibility = Visibility.Hidden;
+            btnCerium.Visibility = Visibility.Hidden;
+            btnPraseodymium.Visibility = Visibility.Hidden;
+            btnNeodymium.Visibility = Visibility.Hidden;
+            btnPromethium.Visibility = Visibility.Hidden;
+            btnSamarium.Visibility = Visibility.Hidden;
+            btnEuropium.Visibility = Visibility.Hidden;
+            btnGadolinium.Visibility = Visibility.Hidden;
+            btnTerbium.Visibility = Visibility.Hidden;
+            btnDysprosium.Visibility = Visibility.Hidden;
+            btnHolmium.Visibility = Visibility.Hidden;
+            btnErbium.Visibility = Visibility.Hidden;
+            btnThulium.Visibility = Visibility.Hidden;
+            btnYtterbium.Visibility = Visibility.Hidden;
+            btnLutetium.Visibility = Visibility.Hidden;
+
+            btnActinium.Visibility = Visibility.Visible;
+            btnThorium.Visibility = Visibility.Visible;
+            btnProtactinium.Visibility = Visibility.Visible;
+            btnUranium.Visibility = Visibility.Visible;
+            btnNeptunium.Visibility = Visibility.Visible;
+            btnPlutonium.Visibility = Visibility.Visible;
+            btnAmericium.Visibility = Visibility.Visible;
+            btnCurium.Visibility = Visibility.Visible;
+            btnBerkelium.Visibility = Visibility.Visible;
+            btnCalifornium.Visibility = Visibility.Visible;
+            btnEinsteinium.Visibility = Visibility.Visible;
+            btnFermium.Visibility = Visibility.Visible;
+            btnMendelevium.Visibility = Visibility.Visible;
+            btnNobelium.Visibility = Visibility.Visible;
+            btnLawrencium.Visibility = Visibility.Visible;
         }
 
         private void clickOfAtom(object sender, RoutedEventArgs e)
@@ -1034,6 +1029,23 @@ namespace easyCalc
             string nowLanguage = changeLanguage.GetLanguage();
 
             changeLanguage.ChangeLanguage(this);
+        }
+
+        /// <summary>
+        /// 周期表上のボタンを右クリックした際のイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // どのボタンが押されたかを取得
+            Button button = (Button)sender;
+
+            // 検索したいボタンの文字列
+            string buttonString = button.Content.ToString();
+
+            ElementDetail elementDetail = new ElementDetail(buttonString);
+            elementDetail.Show();
         }
     }
 }
