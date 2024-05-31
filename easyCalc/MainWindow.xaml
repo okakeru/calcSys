@@ -136,7 +136,7 @@
             
             <!-- 計算式テキストボックス -->
             <Label Name="formula" Grid.Row="0" Height="30" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontFamily="Times New Roman">Formula</Label>
-            <TextBox Grid.Row="1" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+            <TextBox Grid.Row="1" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" KeyDown="formulaText_KeyDown_1"/>
 
             <!-- 計算結果テキストボックス -->
             <Label Name="result" Grid.Row="2" Height="30" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontFamily="Times New Roman">Solution</Label>
@@ -174,7 +174,7 @@
                 <Button Name="nine" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nine_Click" FontFamily="Times New Roman">9</Button>
                 
                 <!-- 記号部 -->
-                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm" FontFamily="Times New Roman">log</Button>
+                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm" FontFamily="Times New Roman" >log</Button>
                 <Button Name="naturalLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="naturalLogarithm_Click" ToolTip="natural logarithm" FontFamily="Times New Roman">ln</Button>
                 <Button Name="sin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="sin_Click" ToolTip="sin" FontFamily="Times New Roman">sin</Button>
                 <Button Name="cos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cos_Click" ToolTip="cos" FontFamily="Times New Roman">cos</Button>
@@ -437,7 +437,7 @@
                             </Style>
                         </DataGridTextColumn.HeaderStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="answer" Width="100" Binding="{Binding result}"  FontFamily="Times New Roman">
+                    <DataGridTextColumn Header="result" Width="100" Binding="{Binding result}"  FontFamily="Times New Roman">
                         <DataGridTextColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="Width" Value="100"/>

@@ -81,6 +81,8 @@ namespace easyCalc
 
         }
 
+
+
         /// <summary>
         /// 画面拡大ボタン押下処理
         /// </summary>
@@ -324,8 +326,26 @@ namespace easyCalc
         {
             // 今テキストボックスに入っている文字列を取得する
             var calcString = formulaText.Text;
+            int stringLength = calcString.Length;
 
-            calcString = calcString.Substring(0, calcString.Length - 1);
+            changeLanguage changeLanguage = new changeLanguage();
+            string selectedLanguage = changeLanguage.GetLanguage();
+            
+            if (stringLength == 0)
+            {
+                if (selectedLanguage == "japanese")
+                {
+                    MessageBox.Show("式テキストボックスは空です。");
+                }
+                else
+                {
+                    MessageBox.Show("The expression text box is empty.");
+                }
+            }
+            else
+            {
+                calcString = calcString.Substring(0, calcString.Length - 1);
+            }
 
             formulaText.Text = calcString;
         }
@@ -1046,6 +1066,82 @@ namespace easyCalc
 
             ElementDetail elementDetail = new ElementDetail(buttonString);
             elementDetail.Show();
+        }
+
+        /// <summary>
+        /// 計算式テキストボックスでバリデーションを実施する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void formulaText_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            // int型に置換した時の結果
+            int parseResult = 0;
+
+            // 入力が許可されている文字のリスト
+            List<string> inputPossibleKeys = new List<string> { "q","w","e","r","t","a","s","d","f","g","z","x","c","v","b","Q","W","E","R","T","A","S","D","F","G","Z","X","C","V","B" };
+
+
+            
+            // 入力されたキーが許可されたものかの判定
+            if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
+            {
+                // Shift + Qが入力されたとき、log10()を出力する。
+                if (e.Key == Key.Q)
+                {
+                    formulaText.Text += "log10()";
+                    
+                    // 入力されたQをキャンセルするために処理を中断する
+                    e.Handled = true;
+                }
+                // Shift + Wが入力されたとき、loge()を出力する。
+                else if (e.Key == Key.W)
+                {
+                    formulaText.Text += "loge()";
+                    e.Handled = true;
+                }
+                // Shift + Eが入力されたとき、sin()を出力する。
+                else if (e.Key == Key.E)
+                {
+                    formulaText.Text += "sin()";
+                    e.Handled = true;
+                }
+                // Shift + Rが入力されたとき、cos()を出力する。
+                else if (e.Key == Key.R)
+                {
+                    formulaText.Text += "cos()";
+                    e.Handled = true;
+                }
+                // Shift + Tが入力されたとき、tan()を出力する。
+                else if (e.Key == Key.T)
+                {
+                    formulaText.Text += "tan()";
+                    e.Handled = true;
+                }
+                // Shift + Aが入力されたとき、[]√()を出力する。
+                // Shift + Sが入力されたとき、√()を出力する。
+                // Shift + Dが入力されたとき、-を出力する。
+            }
+            // 入力値が数字かの判定
+            else if (int.TryParse(e.Key.ToString(),out parseResult))
+            {
+
+            }
+            // それ以外
+            else
+            {
+                changeLanguage changeLanguage = new changeLanguage();
+                string selectedLanguage = changeLanguage.GetLanguage();
+
+                if (selectedLanguage == "japanese")
+                {
+                    MessageBox.Show("使用できないキーが押下されました。");
+                }
+                else if (selectedLanguage == "english")
+                {
+                    MessageBox.Show("An invalid key has been pressed.");
+                }
+            }
         }
     }
 }
