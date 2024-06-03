@@ -242,7 +242,7 @@ namespace easyCalc.other
                 mainWindow.formula.Content = "formula";
                 mainWindow.result.Content = "result";
 
-                mainWindow.periodicTable.Text = "periodicTable";
+                mainWindow.periodicTable.Text = "Periodic Table";
                 mainWindow.TotalAtomicMass.Text = "Total atomic mass";
 
                 mainWindow.LanthanoidLabel.Content = "Lanthanoid";

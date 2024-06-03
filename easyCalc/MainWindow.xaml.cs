@@ -39,6 +39,9 @@ namespace easyCalc
             shownHistory.Visibility = Visibility.Visible;
             hideHistory.Visibility = Visibility.Hidden;
 
+            shownSavedFormula.Visibility = Visibility.Visible;
+            hideSavedFormula.Visibility = Visibility.Hidden;
+
             ActinoidLabel.Visibility = Visibility.Hidden;
             LanthanoidLabel.Visibility = Visibility.Visible;
 
@@ -79,6 +82,8 @@ namespace easyCalc
             btnNobelium.Visibility = Visibility.Hidden;
             btnLawrencium.Visibility = Visibility.Hidden;
 
+            // 変数に値を入れる箇所は初期表示時には不要という想定のため非表示
+            variablePlace.Visibility = Visibility.Hidden;
         }
 
 
@@ -96,6 +101,7 @@ namespace easyCalc
                 this.hidePeriodicTable.Visibility = Visibility.Visible;
                 PeriodicGrid.Visibility = Visibility.Visible;
                 historyGrid.Visibility = Visibility.Hidden;
+                savedFormulaGrid.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -104,6 +110,7 @@ namespace easyCalc
                 this.hidePeriodicTable.Visibility = Visibility.Visible;
                 PeriodicGrid.Visibility = Visibility.Visible;
                 historyGrid.Visibility = Visibility.Hidden;
+                savedFormulaGrid.Visibility = Visibility.Hidden;
             }
 
             // 周期表表示ボタンがクリックされた状態のままになってしまうため、クリックしていない状態のオレンジボタンにする
@@ -111,6 +118,12 @@ namespace easyCalc
             {
                 this.shownHistory.Visibility = Visibility.Visible;
                 this.hideHistory.Visibility = Visibility.Hidden;
+            }
+
+            if (hideSavedFormula.Visibility == Visibility.Visible)
+            {
+                shownSavedFormula.Visibility = Visibility.Visible;
+                hideSavedFormula.Visibility = Visibility.Hidden;
             }
 
         }
@@ -150,12 +163,19 @@ namespace easyCalc
             this.hideHistory.Visibility = Visibility.Visible;
             historyGrid.Visibility = Visibility.Visible;
             PeriodicGrid.Visibility = Visibility.Hidden;
+            savedFormulaGrid.Visibility = Visibility.Hidden;
 
             // 周期表表示ボタンがクリックされた状態のままになってしまうため、クリックしていない状態のオレンジボタンにする
             if (this.hidePeriodicTable.Visibility == Visibility.Visible)
             {
                 this.shownPeriodicTable.Visibility = Visibility.Visible;
                 this.hidePeriodicTable.Visibility = Visibility.Hidden;
+            }
+
+            if (hideSavedFormula.Visibility == Visibility.Visible)
+            {
+                shownSavedFormula.Visibility = Visibility.Visible;
+                hideSavedFormula.Visibility = Visibility.Hidden;
             }
         }
 
@@ -170,6 +190,47 @@ namespace easyCalc
             this.shownHistory.Visibility = Visibility.Visible;
             this.hideHistory.Visibility = Visibility.Hidden;
             PeriodicGrid.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// 公式表示ボタン押下処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void shownSavedFormula_Click(object sender, RoutedEventArgs e)
+        {
+            this.Width = 1150;
+            this.shownSavedFormula.Visibility = Visibility.Hidden;
+            this.hideSavedFormula.Visibility = Visibility.Visible;
+            historyGrid.Visibility = Visibility.Hidden;
+            PeriodicGrid.Visibility = Visibility.Hidden;
+            savedFormulaGrid.Visibility = Visibility.Visible;
+
+            // 周期表表示ボタンがクリックされた状態のままになってしまうため、クリックしていない状態のオレンジボタンにする
+            if (this.hidePeriodicTable.Visibility == Visibility.Visible)
+            {
+                this.shownPeriodicTable.Visibility = Visibility.Visible;
+                this.hidePeriodicTable.Visibility = Visibility.Hidden;
+            }
+
+            if (this.hideHistory.Visibility == Visibility.Visible)
+            {
+                this.shownHistory.Visibility = Visibility.Visible;
+                this.hideHistory.Visibility = Visibility.Hidden;
+            }
+
+        }
+
+        /// <summary>
+        /// 公式非表示ボタン押下処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hideSavedFormula_Click(Object sender, RoutedEventArgs e)
+        {
+            this.Width = 500;
+            this.shownSavedFormula.Visibility = Visibility.Visible;
+            this.hideSavedFormula.Visibility = Visibility.Hidden;
         }
 
         private void zero_Click(object sender, RoutedEventArgs e)
@@ -295,7 +356,13 @@ namespace easyCalc
 
         private void exponential_Click(object sender, RoutedEventArgs e)
         {
+            // 解のテキストボックスにデータが入っている状態でクリックされたら、数式と解を削除する。
+            if (resultText.Text != "")
+            {
+                newInput();
+            }
 
+            formulaText.Text += "^";
         }
 
         /// <summary>
@@ -1001,6 +1068,31 @@ namespace easyCalc
             formulaText.Text += "-";
         }
 
+        private void asin_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "asin()";
+        }
+
+        private void acos_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "acos()";
+        }
+
+        private void atan_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "atan()";
+        }
+
+        private void openingParenthesis_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "(";
+        }
+
+        private void closingParenthesis_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += ")";
+        }
+
         /// <summary>
         /// 計算履歴グリッドの行をダブルクリック
         /// </summary>
@@ -1080,8 +1172,6 @@ namespace easyCalc
 
             // 入力が許可されている文字のリスト
             List<string> inputPossibleKeys = new List<string> { "q","w","e","r","t","a","s","d","f","g","z","x","c","v","b","Q","W","E","R","T","A","S","D","F","G","Z","X","C","V","B" };
-
-
             
             // 入力されたキーが許可されたものかの判定
             if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
@@ -1119,13 +1209,51 @@ namespace easyCalc
                     e.Handled = true;
                 }
                 // Shift + Aが入力されたとき、[]√()を出力する。
+                else if (e.Key == Key.A)
+                {
+                    formulaText.Text += "[]√()";
+                    e.Handled = true;
+                }
                 // Shift + Sが入力されたとき、√()を出力する。
+                else if (e.Key == Key.S)
+                {
+                    formulaText.Text += "√()";
+                    e.Handled = true;
+                }
                 // Shift + Dが入力されたとき、-を出力する。
+                else if (e.Key == Key.D)
+                {
+                    formulaText.Text += "-";
+                    e.Handled = true;
+                }
+
+            }
+            // ctrl 押下した場合、ボタン及びショートカットを切り替える
+            else if ((Keyboard.IsKeyDown(Key.LeftCtrl) || (Keyboard.IsKeyDown(Key.RightCtrl) )))
+            {
+                if (e.Key == Key.E)
+                {
+                    formulaText.Text += "asin()";
+                    e.Handled = true;
+                }
+                // Shift + Rが入力されたとき、cos()を出力する。
+                else if (e.Key == Key.R)
+                {
+                    formulaText.Text += "acos()";
+                    e.Handled = true;
+                }
+                // Shift + Tが入力されたとき、tan()を出力する。
+                else if (e.Key == Key.T)
+                {
+                    formulaText.Text += "atan()";
+                    e.Handled = true;
+                }
+
             }
             // 入力値が数字かの判定
             else if (int.TryParse(e.Key.ToString(),out parseResult))
             {
-
+                // 入力可の文字の場合は何も処理をせずに終了とする
             }
             // それ以外
             else
@@ -1143,5 +1271,55 @@ namespace easyCalc
                 }
             }
         }
+
+        /// <summary>
+        /// カーソルがシステムにあるときにaltキーが押下されているかを判定して、ボタンを切り替える。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl)
+            {
+                sin.Visibility = Visibility.Hidden;
+                cos.Visibility = Visibility.Hidden;
+                tan.Visibility = Visibility.Hidden;
+                asin.Visibility = Visibility.Visible;
+                acos.Visibility = Visibility.Visible;
+                atan.Visibility = Visibility.Visible;
+                commonLogarithm.Visibility = Visibility.Hidden;
+                naturalLogarithm.Visibility = Visibility.Visible;
+                squareRoot.Visibility = Visibility.Hidden;
+                root.Visibility = Visibility.Visible;
+                openingParenthesis.Visibility = Visibility.Hidden;
+                closingParenthesis.Visibility = Visibility.Visible;
+            }
+        }
+
+        /// <summary>
+        /// カーソルがシステムにあるときにaltキーが解放されているかを判定して、ボタンを切り替える。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl)
+            {
+                sin.Visibility = Visibility.Visible;
+                cos.Visibility = Visibility.Visible;
+                tan.Visibility = Visibility.Visible;
+                asin.Visibility = Visibility.Hidden;
+                acos.Visibility = Visibility.Hidden;
+                atan.Visibility = Visibility.Hidden;
+                commonLogarithm.Visibility = Visibility.Visible;
+                naturalLogarithm.Visibility = Visibility.Hidden;
+                squareRoot.Visibility = Visibility.Visible;
+                root.Visibility = Visibility.Hidden;
+                openingParenthesis.Visibility = Visibility.Visible;
+                closingParenthesis.Visibility = Visibility.Hidden;
+            }
+        }
+
+
     }
 }

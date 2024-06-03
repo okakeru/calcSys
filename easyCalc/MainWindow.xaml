@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Windows版関数電卓" Height="800" Width="1150"
         ResizeMode="NoResize"
-        IsVisibleChanged="Window_IsVisibleChanged">
+        IsVisibleChanged="Window_IsVisibleChanged"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        PreviewKeyUp="Window_PreviewKeyUp">
     
     <Window.DataContext>
         <local:MainWindowData/>
@@ -88,7 +90,6 @@
         <Style x:Key="NormalButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="White"/>
         </Style>
-        
     </Window.Resources>
     
     <!-- メニューバー -->
@@ -118,17 +119,20 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <Button Name="shownPeriodicTable" Grid.Row="1" VerticalAlignment="Center" Width="25" Height="25" Click="showPeriodicTable_Click" ToolTip="shown periodic table" Style="{StaticResource OpenButtonStyle}">→</Button>
-            <Button Name="hidePeriodicTable" Grid.Row="1" VerticalAlignment="Center" Width="25" Height="25" Click="hidePeriodicTable_Click" ToolTip="hide periodic table" Style="{StaticResource HiddenButtonStyle}">←</Button>
-            <Button Name="shownHistory" Grid.Row="2" VerticalAlignment="Center" Width="25" Height="25" Click="shownHistory_Click" ToolTip="shown history" Style="{StaticResource OpenButtonStyle}">→</Button>
-            <Button Name="hideHistory" Grid.Row="2" VerticalAlignment="Center" Width="25" Height="25" Click="hideHistory_Click" ToolTip="hide history table" Style="{StaticResource HiddenButtonStyle}">←</Button>
+            <Button Name="shownPeriodicTable" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="showPeriodicTable_Click" ToolTip="shown periodic table" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">▶</Button>
+            <Button Name="hidePeriodicTable" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hidePeriodicTable_Click" ToolTip="hide periodic table" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">◀</Button>
+            <Button Name="shownHistory" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="shownHistory_Click" ToolTip="shown history" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">▶</Button>
+            <Button Name="hideHistory" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hideHistory_Click" ToolTip="hide history table" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">◀</Button>
+            <Button Name="shownSavedFormula" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="shownSavedFormula_Click" ToolTip="shown savedFormula" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">▶</Button>
+            <Button Name="hideSavedFormula" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hideSavedFormula_Click" ToolTip="hide savedFormula" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">◀</Button>
         </Grid>
 
         <!-- 画面左側 -->
         <Grid Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="500"/>
@@ -136,14 +140,36 @@
             
             <!-- 計算式テキストボックス -->
             <Label Name="formula" Grid.Row="0" Height="30" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontFamily="Times New Roman">Formula</Label>
-            <TextBox Grid.Row="1" Name="formulaText" Height="100" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" KeyDown="formulaText_KeyDown_1"/>
+            <TextBox Grid.Row="1" Name="formulaText" Height="50" Width="400" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" KeyDown="formulaText_KeyDown_1"/>
 
+            <!-- 演算に使用する記号カ所のテキストボックス -->
+            <ScrollViewer Name="variablePlace" Grid.Row="2" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Height="50" Width="400">
+                <StackPanel Orientation="Horizontal">
+                    <Label Name="MathematicalOperator1" Width="50" Height="30"/>
+                    <TextBox Name="MathematicalOperatorText1" Width="50" Height="30"/>
+                    <Label Name="MathematicalOperator2" Width="50" Height="30"/>
+                    <TextBox Name="MathematicalOperatorText2" Width="50" Height="30"/>
+                    <Label Name="MathematicalOperator3" Width="50" Height="30"/>
+                    <TextBox Name="MathematicalOperatorText3" Width="50" Height="30"/>
+                    <Label Name="MathematicalOperator4" Width="50" Height="30"/>
+                    <TextBox Name="MathematicalOperatorText4" Width="50" Height="30"/>
+                    <Label Name="MathematicalOperator5" Width="50" Height="30"/>
+                    <TextBox Name="MathematicalOperatorText5" Width="50" Height="30"/>
+                    <Label Name="MathematicalOperator6" Width="50" Height="30"/>
+                    <TextBox Name="MathematicalOperatorText6" Width="50" Height="30"/>
+                    <Label Name="MathematicalOperator7" Width="50" Height="30"/>
+                    <TextBox Name="MathematicalOperatorText7" Width="50" Height="30"/>
+                    <Label Name="MathematicalOperator8" Width="50" Height="30"/>
+                    <TextBox Name="MathematicalOperatorText8" Width="50" Height="30"/>
+                </StackPanel>
+            </ScrollViewer>
+            
             <!-- 計算結果テキストボックス -->
-            <Label Name="result" Grid.Row="2" Height="30" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontFamily="Times New Roman">Solution</Label>
-            <TextBox Grid.Row="3" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" FontSize="20"/>
+            <Label Name="result" Grid.Row="3" Height="30" Width="200" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontFamily="Times New Roman">Solution</Label>
+            <TextBox Grid.Row="4" Name="resultText" Height="50" Width="400" VerticalAlignment="Center" IsReadOnly="True" VerticalContentAlignment="Center" FontSize="20"/>
 
             <!-- 入力ボタン部 -->
-            <Grid Grid.Row="4" Grid.Column="0">
+            <Grid Grid.Row="5" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70"/>
                     <RowDefinition Height="70"/>
@@ -174,15 +200,24 @@
                 <Button Name="nine" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="nine_Click" FontFamily="Times New Roman">9</Button>
                 
                 <!-- 記号部 -->
-                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm" FontFamily="Times New Roman" >log</Button>
-                <Button Name="naturalLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="naturalLogarithm_Click" ToolTip="natural logarithm" FontFamily="Times New Roman">ln</Button>
+                <Button Name="commonLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="commonLogarithm_Click" ToolTip="common logarithm" FontFamily="Times New Roman" Visibility="Visible">log</Button>
+                <Button Name="naturalLogarithm" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="naturalLogarithm_Click" ToolTip="natural logarithm" FontFamily="Times New Roman" Visibility="Hidden">ln</Button>
+
+                <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suare root" FontFamily="Times New Roman" Visibility="Visible">√</Button>
+                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="root_Click" ToolTip="root" FontFamily="Times New Roman" Visibility="Hidden">n√</Button>
+
                 <Button Name="sin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="sin_Click" ToolTip="sin" FontFamily="Times New Roman">sin</Button>
                 <Button Name="cos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cos_Click" ToolTip="cos" FontFamily="Times New Roman">cos</Button>
                 <Button Name="tan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="tan_Click" ToolTip="tan" FontFamily="Times New Roman">tan</Button>
-                <Button Name="squareRoot" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="squareRoot_Click" ToolTip="suare root" FontFamily="Times New Roman">√</Button>
-                <Button Name="root" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="root_Click" ToolTip="root" FontFamily="Times New Roman">n√</Button>
-                <Button Name="negativeSign" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="negativeSign_Click" ToolTip="negative sign" FontFamily="Times New Roman">(ー)</Button>
+                <Button Name="asin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="asin_Click" ToolTip="asin" FontFamily="Times New Roman" Visibility="Hidden">asin</Button>
+                <Button Name="acos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="acos_Click" ToolTip="acos" FontFamily="Times New Roman" Visibility="Hidden">acos</Button>
+                <Button Name="atan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="atan_Click" ToolTip="atan" FontFamily="Times New Roman" Visibility="Hidden">atan</Button>
+                
+                <Button Name="negativeSign" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="negativeSign_Click" ToolTip="negative sign" FontFamily="Times New Roman">(ー)</Button>
 
+                <Button Name="openingParenthesis" Height="50" Width="50" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="openingParenthesis_Click" ToolTip="opening parenthesis" FontFamily="Times New Roman" Visibility="Visible">(</Button>
+                <Button Name="closingParenthesis" Height="50" Width="50" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="closingParenthesis_Click" ToolTip="closing parenthesis" FontFamily="Times New Roman" Visibility="Hidden">)</Button>
+                
                 <Button Name="period" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="period_Click" FontFamily="Times New Roman">.</Button>
                 <Button Name="exponential" Height="50" Width="50" FontSize="20" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="exponential_Click" FontFamily="Times New Roman">^X</Button>
                 <Button Name="allClear" Height="50" Width="50" FontSize="20" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="allClear_Click" FontFamily="Times New Roman">AC</Button>
@@ -448,6 +483,18 @@
                 </DataGrid.Columns>
             </DataGrid>
 
+        </Grid>
+
+        <!-- 公式表示グリッド -->
+        <Grid Name="savedFormulaGrid"  Grid.Row="0" Grid.Column="2" Visibility="Hidden">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="750"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="35" Text="Saved Formula" VerticalAlignment="Center" Width="150" TextAlignment="Center" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
+            
         </Grid>
 
     </Grid>
