@@ -9,7 +9,9 @@
         ResizeMode="NoResize"
         IsVisibleChanged="Window_IsVisibleChanged"
         PreviewKeyDown="Window_PreviewKeyDown"
-        PreviewKeyUp="Window_PreviewKeyUp">
+        PreviewKeyUp="Window_PreviewKeyUp"
+        KeyDown="Window_KeyDown"
+        KeyUp="Window_KeyUp">
     
     <Window.DataContext>
         <local:MainWindowData/>
@@ -119,12 +121,12 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <Button Name="shownPeriodicTable" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="showPeriodicTable_Click" ToolTip="shown periodic table" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">▶</Button>
-            <Button Name="hidePeriodicTable" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hidePeriodicTable_Click" ToolTip="hide periodic table" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">◀</Button>
-            <Button Name="shownHistory" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="shownHistory_Click" ToolTip="shown history" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">▶</Button>
-            <Button Name="hideHistory" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hideHistory_Click" ToolTip="hide history table" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">◀</Button>
-            <Button Name="shownSavedFormula" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="shownSavedFormula_Click" ToolTip="shown savedFormula" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">▶</Button>
-            <Button Name="hideSavedFormula" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hideSavedFormula_Click" ToolTip="hide savedFormula" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5">◀</Button>
+            <Button Name="shownPeriodicTable" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="showPeriodicTable_Click" ToolTip="shown periodic table" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5" MouseEnter="shownPeriodicTable_MouseEnter" MouseLeave="shownPeriodicTable_MouseLeave">▶</Button>
+            <Button Name="hidePeriodicTable" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hidePeriodicTable_Click" ToolTip="hide periodic table" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5" MouseEnter="hidePeriodicTable_MouseEnter" MouseLeave="hidePeriodicTable_MouseLeave">◀</Button>
+            <Button Name="shownHistory" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="shownHistory_Click" ToolTip="shown history" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5" MouseEnter="shownHistory_MouseEnter" MouseLeave="shownHistory_MouseLeave">▶</Button>
+            <Button Name="hideHistory" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hideHistory_Click" ToolTip="hide history table" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5" MouseEnter="hideHistory_MouseEnter" MouseLeave="hideHistory_MouseLeave">◀</Button>
+            <Button Name="shownSavedFormula" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="shownSavedFormula_Click" ToolTip="shown savedFormula" Style="{StaticResource OpenButtonStyle}" FontWeight="Bold" BorderThickness="0.5" MouseEnter="shownSavedFormula_MouseEnter" MouseLeave="shownSavedFormula_MouseLeave">▶</Button>
+            <Button Name="hideSavedFormula" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Click="hideSavedFormula_Click" ToolTip="hide savedFormula" Style="{StaticResource HiddenButtonStyle}" FontWeight="Bold" BorderThickness="0.5" MouseEnter="hideSavedFormula_MouseEnter" MouseLeave="hideSavedFormula_MouseLeave">◀</Button>
         </Grid>
 
         <!-- 画面左側 -->
@@ -212,7 +214,10 @@
                 <Button Name="asin" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="asin_Click" ToolTip="asin" FontFamily="Times New Roman" Visibility="Hidden">asin</Button>
                 <Button Name="acos" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="acos_Click" ToolTip="acos" FontFamily="Times New Roman" Visibility="Hidden">acos</Button>
                 <Button Name="atan" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="atan_Click" ToolTip="atan" FontFamily="Times New Roman" Visibility="Hidden">atan</Button>
-                
+                <Button Name="cosec" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cosec_Click" ToolTip="cosecant" FontFamily="Times New Roman" Visibility="Hidden">cosec</Button>
+                <Button Name="sec" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="sec_Click" ToolTip="secant" FontFamily="Times New Roman" Visibility="Hidden">sec</Button>
+                <Button Name="cot" Height="50" Width="50" FontSize="20" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cot_Click" ToolTip="cotangent" FontFamily="Times New Roman" Visibility="Hidden">atan</Button>
+
                 <Button Name="negativeSign" Height="50" Width="50" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="negativeSign_Click" ToolTip="negative sign" FontFamily="Times New Roman">(ー)</Button>
 
                 <Button Name="openingParenthesis" Height="50" Width="50" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="openingParenthesis_Click" ToolTip="opening parenthesis" FontFamily="Times New Roman" Visibility="Visible">(</Button>

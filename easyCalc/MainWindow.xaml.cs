@@ -1038,60 +1038,146 @@ namespace easyCalc
             formulaText.Text += "loge()";
         }
 
+        /// <summary>
+        /// サインボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sin_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "sin()";
         }
 
+        /// <summary>
+        /// コサインボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cos_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "cos()";
         }
 
+        /// <summary>
+        /// タンジェントボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tan_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "tan()";
         }
 
+        /// <summary>
+        /// 根号ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void root_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "[]√()";
         }
 
+        /// <summary>
+        /// 二乗根ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void squareRoot_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "√()";
         }
 
+        /// <summary>
+        /// 負号ボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void negativeSign_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "-";
         }
 
+        /// <summary>
+        /// アークサインボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void asin_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "asin()";
         }
 
+        /// <summary>
+        /// アークコサインボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void acos_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "acos()";
         }
 
+        /// <summary>
+        /// アークタンジェントボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void atan_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "atan()";
         }
 
+        /// <summary>
+        /// 括弧はじめボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openingParenthesis_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += "(";
         }
 
+        /// <summary>
+        /// 括弧おわりボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void closingParenthesis_Click(object sender, RoutedEventArgs e)
         {
             formulaText.Text += ")";
         }
+
+        /// <summary>
+        /// コセカントボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cosec_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "cosec()";
+        }
+
+        /// <summary>
+        /// セカントボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sec_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "sec()";
+        }
+
+        /// <summary>
+        /// コタンジェントボタンクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cot_Click(object sender, RoutedEventArgs e)
+        {
+            formulaText.Text += "cot()";
+        }
+
 
         /// <summary>
         /// 計算履歴グリッドの行をダブルクリック
@@ -1248,7 +1334,6 @@ namespace easyCalc
                     formulaText.Text += "atan()";
                     e.Handled = true;
                 }
-
             }
             // 入力値が数字かの判定
             else if (int.TryParse(e.Key.ToString(),out parseResult))
@@ -1273,7 +1358,7 @@ namespace easyCalc
         }
 
         /// <summary>
-        /// カーソルがシステムにあるときにaltキーが押下されているかを判定して、ボタンを切り替える。
+        /// カーソルがシステムにあるときにctrlキーが押下されているかを判定して、ボタンを切り替える。
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1297,7 +1382,7 @@ namespace easyCalc
         }
 
         /// <summary>
-        /// カーソルがシステムにあるときにaltキーが解放されているかを判定して、ボタンを切り替える。
+        /// カーソルがシステムにあるときにctrlキーが解放されているかを判定して、ボタンを切り替える。
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1320,6 +1405,146 @@ namespace easyCalc
             }
         }
 
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
 
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 画面拡大ボタン（周期表）にカーソルを合わせた時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void shownPeriodicTable_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を濃くして、カーソルが乗っていることをユーザに示す
+            shownPeriodicTable.Background = Brushes.Blue;
+        }
+
+        /// <summary>
+        /// 画面拡大ボタン（周期表）からカーソルを外した時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void shownPeriodicTable_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を戻して、カーソルが乗っていないことをユーザに示す
+            shownPeriodicTable.Background = Brushes.Aquamarine;
+        }
+
+        /// <summary>
+        /// 画面縮小ボタン（周期表）にカーソルを合わせた時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hidePeriodicTable_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を濃くして、カーソルが乗っていることをユーザに示す
+            hidePeriodicTable.Background = Brushes.Pink;
+        }
+
+        /// <summary>
+        /// 画面縮小ボタン（周期表）からカーソルを外した時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hidePeriodicTable_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を戻して、カーソルが乗っていないことをユーザに示す
+            hidePeriodicTable.Background = Brushes.Orange;
+        }
+
+        /// <summary>
+        /// 画面拡大ボタン（計算履歴）にカーソルを合わせた時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void shownHistory_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を濃くして、カーソルが乗っていることをユーザに示す
+            shownHistory.Background = Brushes.Blue;
+        }
+
+        /// <summary>
+        /// 画面拡大ボタン（計算履歴）からカーソルを外した時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void shownHistory_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を戻して、カーソルが乗っていないことをユーザに示す
+            shownHistory.Background = Brushes.Aquamarine;
+        }
+
+        /// <summary>
+        /// 画面縮小ボタン（計算履歴）にカーソルを合わせた時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hideHistory_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を濃くして、カーソルが乗っていることをユーザに示す
+            hideHistory.Background = Brushes.Pink;
+        }
+
+        /// <summary>
+        /// 画面縮小ボタン（計算履歴）からカーソルを外した時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hideHistory_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を戻して、カーソルが乗っていないことをユーザに示す
+            hideHistory.Background = Brushes.Orange;
+        }
+
+        /// <summary>
+        /// 画面拡大ボタン（定数）にカーソルを合わせた時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void shownSavedFormula_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を濃くして、カーソルが乗っていることをユーザに示す
+            shownSavedFormula.Background = Brushes.Blue;
+        }
+
+        /// <summary>
+        /// 画面拡大ボタン（定数）からカーソルを外した時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void shownSavedFormula_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を戻して、カーソルが乗っていないことをユーザに示す
+            shownSavedFormula.Background = Brushes.Aquamarine;
+        }
+
+        /// <summary>
+        /// 画面縮小ボタン（定数）にカーソルを合わせた時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hideSavedFormula_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を濃くして、カーソルが乗っていることをユーザに示す
+            hideSavedFormula.Background = Brushes.Pink;
+        }
+
+        /// <summary>
+        /// 画面縮小ボタン（定数）からカーソルを外した時に発火するイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hideSavedFormula_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // ボタンの色を戻して、カーソルが乗っていないことをユーザに示す
+            hideSavedFormula.Background = Brushes.Orange;
+        }
     }
 }
